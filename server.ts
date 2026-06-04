@@ -62,7 +62,7 @@ app.get('/sitemap.xml', async (req, res) => {
     xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
 
     // Static Routes
-    const staticPages = ['', '/catalog', '/blogs', '/faqs', '/contact', '/privacy', '/terms'];
+    const staticPages = ['', '/catalog', '/blogs', '/faqs', '/contact', '/privacy-policy', '/terms&services'];
     staticPages.forEach(page => {
       xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
     });

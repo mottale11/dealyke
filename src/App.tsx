@@ -428,10 +428,13 @@ export default function App() {
     };
   }, []);
 
-  // Handle Admin routing separately based on currentRole and window location
+  // Handle Routing based on window location
   useEffect(() => {
-    const checkAdminPath = () => {
-      if (window.location.pathname === '/admin' || window.location.pathname.startsWith('/admin/')) {
+    const handleLocationChange = () => {
+      const path = window.location.pathname;
+      
+      // Admin check
+      if (path === '/admin' || path.startsWith('/admin/')) {
         if (currentRole !== UserRole.ADMIN) {
           setLoginModalAdminMode(true);
           setIsLoginModalOpen(true);
@@ -439,14 +442,22 @@ export default function App() {
           setIsLoginModalOpen(false);
           setActiveTab('admin-desk');
         }
+      } 
+      // Privacy Policy check
+      else if (path === '/privacy-policy') {
+        setActiveTab('privacy');
+      } 
+      // Terms check
+      else if (path === '/terms&services') {
+        setActiveTab('terms');
       }
     };
 
-    checkAdminPath();
+    handleLocationChange();
     
     // Also listen for popstate if user uses back/forward buttons
-    window.addEventListener('popstate', checkAdminPath);
-    return () => window.removeEventListener('popstate', checkAdminPath);
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
   }, [currentRole]);
   
   useEffect(() => {
@@ -3240,8 +3251,24 @@ export default function App() {
           <div className="space-y-2">
             <h4 className="font-sans font-bold uppercase text-[10px] tracking-widest text-[#111]">Legal & Policy</h4>
             <div className="flex flex-col gap-1.5 text-zinc-500 text-[11px] items-start">
-              <button onClick={() => setActiveTab('privacy')} className="hover:text-black">Privacy Policy</button>
-              <button onClick={() => setActiveTab('terms')} className="hover:text-black">Terms of Service</button>
+              <button 
+                onClick={() => {
+                  window.history.pushState({}, '', '/privacy-policy');
+                  setActiveTab('privacy');
+                }} 
+                className="hover:text-black"
+              >
+                Privacy Policy
+              </button>
+              <button 
+                onClick={() => {
+                  window.history.pushState({}, '', '/terms&services');
+                  setActiveTab('terms');
+                }} 
+                className="hover:text-black"
+              >
+                Terms of Service
+              </button>
             </div>
             <p className="text-[10px] text-zinc-400 mt-4 leading-relaxed">
               Optimized for: <em>"Best deals Kenya"</em>, <em>"Cheap phones Kenya"</em>.
