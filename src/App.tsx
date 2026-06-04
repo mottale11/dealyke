@@ -3237,38 +3237,43 @@ export default function App() {
           <div className="space-y-2">
             <h4 className="font-sans font-bold uppercase text-[10px] tracking-widest text-[#111]">Platform Discovery</h4>
             <div className="flex flex-col gap-1.5 text-zinc-500 text-[11px] items-start">
-              <button onClick={() => { setActiveTab('catalog'); }} className="hover:text-black">Catalog Drops</button>
-              <button onClick={() => { setActiveTab('blogs'); }} className="hover:text-black">Buying Guides</button>
-              <button onClick={() => {
+              <a href="/catalog" onClick={(e) => { e.preventDefault(); setActiveTab('catalog'); }} className="hover:text-black">Catalog Drops</a>
+              <a href="/blogs" onClick={(e) => { e.preventDefault(); setActiveTab('blogs'); }} className="hover:text-black">Buying Guides</a>
+              <a href="/admin" onClick={(e) => { 
+                e.preventDefault();
                 setLoginModalAdminMode(true);
                 setIsLoginModalOpen(true);
-              }} className="hover:text-[#D9411E] font-bold">Admin Login</button>
-              <button onClick={() => setActiveTab('faqs')} className="hover:text-black">Help & FAQ</button>
-              <button onClick={() => setActiveTab('contact')} className="hover:text-black">Contact Support</button>
+              }} className="hover:text-[#D9411E] font-bold">Admin Login</a>
+              <a href="/faqs" onClick={(e) => { e.preventDefault(); setActiveTab('faqs'); }} className="hover:text-black">Help & FAQ</a>
+              <a href="/contact" onClick={(e) => { e.preventDefault(); setActiveTab('contact'); }} className="hover:text-black">Contact Support</a>
             </div>
           </div>
 
           <div className="space-y-2">
             <h4 className="font-sans font-bold uppercase text-[10px] tracking-widest text-[#111]">Legal & Policy</h4>
             <div className="flex flex-col gap-1.5 text-zinc-500 text-[11px] items-start">
-              <button 
-                onClick={() => {
+              <a 
+                href="/privacy-policy"
+                onClick={(e) => {
+                  e.preventDefault();
                   window.history.pushState({}, '', '/privacy-policy');
                   setActiveTab('privacy');
                 }} 
                 className="hover:text-black"
               >
                 Privacy Policy
-              </button>
-              <button 
-                onClick={() => {
+              </a>
+              <a 
+                href="/terms&services"
+                onClick={(e) => {
+                  e.preventDefault();
                   window.history.pushState({}, '', '/terms&services');
                   setActiveTab('terms');
                 }} 
                 className="hover:text-black"
               >
                 Terms of Service
-              </button>
+              </a>
             </div>
             <p className="text-[10px] text-zinc-400 mt-4 leading-relaxed">
               Optimized for: <em>"Best deals Kenya"</em>, <em>"Cheap phones Kenya"</em>.

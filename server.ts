@@ -26,26 +26,25 @@ import {
 } from './src/types.js'; // Use extension mapping
 import { getSupabaseAdmin } from './src/lib/supabase.js';
 
-const supabase = getSupabaseAdmin();
-
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Initialize Gemini Client
+// Initialize Supabase & AI inside the app instance or as globals
+const supabase = getSupabaseAdmin();
 const aiApiKey = process.env.GEMINI_API_KEY;
 let aiClient: GoogleGenAI | null = null;
+
 if (aiApiKey) {
   aiClient = new GoogleGenAI({
     apiKey: aiApiKey,
-    httpOptions: {
-      headers: {
-        'User-Agent': 'aistudio-build',
-      }
-    }
+    httpOptions: { headers: { 'User-Agent': 'aistudio-build' } }
   });
 }
 
 app.use(express.json());
+
+// Export for Vercel
+export default app;
 
 // Sitemap endpoint for Google SEO
 app.get('/sitemap.xml', async (req, res) => {
@@ -1041,9 +1040,12 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`[Dealy KE] Running on http://localhost:${PORT}`);
-  });
+  // Only start listening if not in Vercel/serverless environment
+  if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+    app.listen(PORT, () => {
+      console.log(`[Dealy KE] Running on http://localhost:${PORT}`);
+    });
+  }
 }
 
 startServer();
