@@ -17,6 +17,11 @@ import Header from './components/Header';
 import AuthModal from './components/AuthModal';
 import { supabase } from './lib/supabase';
 
+// Page Imports
+import ContactUs from './pages/ContactUs';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+
 export default function App() {
   // Roles & Tab states
   const [currentRole, setCurrentRole] = useState<UserRole>(UserRole.GUEST);
@@ -3188,6 +3193,11 @@ export default function App() {
           </div>
         )}
 
+        {/* TAB 8: LEGAL & CONTACT PAGES */}
+        {activeTab === 'contact' && <ContactUs />}
+        {activeTab === 'privacy' && <PrivacyPolicy />}
+        {activeTab === 'terms' && <TermsOfService />}
+
       </main>
 
       {/* FOOTER BAR */}
@@ -3223,13 +3233,18 @@ export default function App() {
                 setIsLoginModalOpen(true);
               }} className="hover:text-[#D9411E] font-bold">Admin Login</button>
               <button onClick={() => setActiveTab('faqs')} className="hover:text-black">Help & FAQ</button>
+              <button onClick={() => setActiveTab('contact')} className="hover:text-black">Contact Support</button>
             </div>
           </div>
 
-          <div className="space-y-3">
-            <h4 className="font-sans font-bold uppercase text-[10px] tracking-widest text-[#111]">Metadata optimization</h4>
-            <p className="text-[11px] text-zinc-550 text-zinc-500 leading-relaxed">
-              Optimized for: <em>"Best deals Kenya"</em>, <em>"Cheap phones Kenya"</em>, <em>"best deals from Jumia"</em>, <em>"Online shopping Kenya"</em>. sitemap.xml and robots.txt preview logs valid.
+          <div className="space-y-2">
+            <h4 className="font-sans font-bold uppercase text-[10px] tracking-widest text-[#111]">Legal & Policy</h4>
+            <div className="flex flex-col gap-1.5 text-zinc-500 text-[11px] items-start">
+              <button onClick={() => setActiveTab('privacy')} className="hover:text-black">Privacy Policy</button>
+              <button onClick={() => setActiveTab('terms')} className="hover:text-black">Terms of Service</button>
+            </div>
+            <p className="text-[10px] text-zinc-400 mt-4 leading-relaxed">
+              Optimized for: <em>"Best deals Kenya"</em>, <em>"Cheap phones Kenya"</em>.
             </p>
           </div>
 
