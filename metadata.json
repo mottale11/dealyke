@@ -1,0 +1,6 @@
+{
+  "name": "Dealy KE",
+  "description": "Dealy KE is an affiliate and JForce resale product aggregation platform featuring an AI shopping assistant, analytics, blog engine, product reviews, and an admin CMS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
