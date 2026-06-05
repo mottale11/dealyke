@@ -46,6 +46,16 @@ app.use(express.json());
 // Export for Vercel
 export default app;
 
+/** Escape special XML characters to prevent XSS in XML responses */
+function escapeXml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 // Sitemap endpoint for Google SEO
 app.get('/sitemap.xml', async (req, res) => {
   try {
@@ -63,17 +73,21 @@ app.get('/sitemap.xml', async (req, res) => {
     // Static Routes
     const staticPages = ['', '/catalog', '/blogs', '/faqs', '/contact', '/privacy-policy', '/terms&services'];
     staticPages.forEach(page => {
-      xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+      xml += `  <url>\n    <loc>${escapeXml(baseUrl + page)}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
     });
 
     // Dynamic Product Routes
     products?.forEach(p => {
-      xml += `  <url>\n    <loc>${baseUrl}/catalog?product=${p.id}</loc>\n    <lastmod>${new Date(p.updated_at).toISOString().split('T')[0]}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+      const loc = escapeXml(`${baseUrl}/catalog?product=${p.id}`);
+      const lastmod = escapeXml(new Date(p.updated_at).toISOString().split('T')[0]);
+      xml += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
     });
 
     // Dynamic Blog Routes
     blogs?.forEach(b => {
-      xml += `  <url>\n    <loc>${baseUrl}/blogs/${b.slug}</loc>\n    <lastmod>${new Date(b.updated_at).toISOString().split('T')[0]}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
+      const loc = escapeXml(`${baseUrl}/blogs/${b.slug}`);
+      const lastmod = escapeXml(new Date(b.updated_at).toISOString().split('T')[0]);
+      xml += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
     });
 
     xml += `</urlset>`;
@@ -197,11 +211,13 @@ app.put('/api/products/:id', async (req, res) => {
   };
 
   // Remove undefined fields to prevent overwriting with null if not intended
-  Object.keys(updates).forEach(key => updates[key] === undefined && delete updates[key]);
+  const cleanUpdates = Object.fromEntries(
+    Object.entries(updates).filter(([, v]) => v !== undefined)
+  );
   
   const { data, error } = await supabase
     .from('products')
-    .update(updates)
+    .update(cleanUpdates)
     .eq('id', id)
     .select()
     .single();
@@ -842,7 +858,15 @@ Rules:
       contents: [
         ...chatHistory,
         { role: 'user', parts: [{ text: prompt }] }
-      ]
+      ],
+      config: {
+        safetySettings: [
+          { category: 'HARM_CATEGORY_HARASSMENT',        threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          { category: 'HARM_CATEGORY_HATE_SPEECH',       threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+        ]
+      }
     });
 
     res.json({ text: response.text });
