@@ -29,6 +29,16 @@ import { getSupabaseAdmin } from './src/lib/supabase.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Validate required environment variables at startup
+const requiredEnvVars = ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY'] as const;
+for (const key of requiredEnvVars) {
+  if (!process.env[key]) {
+    console.error(`[FATAL] Missing required environment variable: ${key}`);
+    console.error('[FATAL] Set this in Vercel → Project → Settings → Environment Variables');
+    // Don't crash the process — let the error surface per-request instead
+  }
+}
+
 // Initialize Supabase & AI inside the app instance or as globals
 const supabase = getSupabaseAdmin();
 const aiApiKey = process.env.GEMINI_API_KEY;
@@ -100,11 +110,21 @@ app.get('/sitemap.xml', async (req, res) => {
   }
 });
 
+// Middleware: guard all /api/* routes if supabase client failed to init
+app.use('/api', (req, res, next) => {
+  if (!supabase) {
+    return res.status(503).json({
+      error: 'Database not configured. Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in Vercel environment variables.'
+    });
+  }
+  next();
+});
+
 // API Endpoints
 // Load products
 app.get('/api/products', async (req, res) => {
   try {
-    const { data, error } = await supabase
+    const { data, error } = await supabase!
       .from('products')
       .select('*')
       .order('created_at', { ascending: false });
