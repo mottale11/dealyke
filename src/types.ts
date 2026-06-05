@@ -45,6 +45,7 @@ export interface Product {
   price: number; // in KES
   originalPrice?: number; // for discount calculation
   imageUrl: string;
+  imageGallery: string[]; // support for multiple images
   source: ProductSource;
   category: string;
   affiliateUrl?: string; // for Twiva/Affiliate redirect

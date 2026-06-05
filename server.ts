@@ -105,7 +105,8 @@ app.get('/api/products', async (req, res) => {
       ...p,
       originalPrice: p.original_price,
       imageUrl: p.image_url,
-      jforceSku: p.jforce_sku,
+    imageGallery: p.image_gallery || [],
+    jforceSku: p.jforce_sku,
       affiliateUrl: p.affiliate_url,
       topSeller: p.top_seller,
       rating: Number(p.rating) || 5.0,
@@ -121,21 +122,31 @@ app.get('/api/products', async (req, res) => {
 
 // Create product (Admin)
 app.post('/api/products', async (req, res) => {
+  const { title, description, specifications, price, originalPrice, imageUrl, source, category, affiliateUrl, jforceSku, availability, featured, trending, topSeller } = req.body;
+  
+  // First, find the category_id from the slug provided
+  const { data: catData, error: catError } = await supabase
+    .from('categories')
+    .select('id')
+    .eq('slug', category)
+    .single();
+
   const newProduct = {
-    title: req.body.title || 'Untitled Deal',
-    description: req.body.description || '',
-    specifications: req.body.specifications || [],
-    price: Number(req.body.price) || 0,
-    original_price: req.body.originalPrice ? Number(req.body.originalPrice) : null,
-    image_url: req.body.imageUrl || 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=400',
-    source: req.body.source || 'JFORCE',
-    category_id: req.body.categoryId, // Assuming categoryId is passed
-    affiliate_url: req.body.affiliateUrl || '',
-    jforce_sku: req.body.jforceSku || '',
-    availability: req.body.availability !== false,
-    featured: req.body.featured === true,
-    trending: req.body.trending === true,
-    top_seller: req.body.topSeller === true,
+    title: title || 'Untitled Deal',
+    description: description || '',
+    specifications: specifications || [],
+    price: Number(price) || 0,
+    original_price: originalPrice ? Number(originalPrice) : null,
+    image_url: imageUrl || 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=400',
+    image_gallery: req.body.imageGallery || [],
+    source: source || 'JFORCE',
+    category_id: catData?.id || null,
+    affiliate_url: affiliateUrl || '',
+    jforce_sku: jforceSku || '',
+    availability: availability !== false,
+    featured: featured === true,
+    trending: trending === true,
+    top_seller: topSeller === true,
   };
   
   const { data, error } = await supabase
@@ -144,18 +155,49 @@ app.post('/api/products', async (req, res) => {
     .select()
     .single();
     
-  if (error) return res.status(500).json({ error: error.message });
+  if (error) {
+    console.error('[Supabase Error] Creating product:', error);
+    return res.status(500).json({ error: error.message });
+  }
   res.status(201).json(data);
 });
 
 // Edit product (Admin)
 app.put('/api/products/:id', async (req, res) => {
   const { id } = req.params;
-  const updates = {
-    ...req.body,
-    price: req.body.price ? Number(req.body.price) : undefined,
-    original_price: req.body.originalPrice ? Number(req.body.originalPrice) : undefined,
+  const { title, description, specifications, price, originalPrice, imageUrl, source, category, affiliateUrl, jforceSku, availability, featured, trending, topSeller } = req.body;
+
+  // First, find the category_id from the slug provided if category changed
+  let category_id = undefined;
+  if (category) {
+    const { data: catData } = await supabase
+      .from('categories')
+      .select('id')
+      .eq('slug', category)
+      .single();
+    if (catData) category_id = catData.id;
+  }
+
+  const updates: any = {
+    title,
+    description,
+    specifications,
+    price: price ? Number(price) : undefined,
+    original_price: originalPrice ? Number(originalPrice) : undefined,
+    image_url: imageUrl,
+    image_gallery: req.body.imageGallery,
+    source,
+    category_id,
+    affiliate_url: affiliateUrl,
+    jforce_sku: jforceSku,
+    availability,
+    featured,
+    trending,
+    top_seller: topSeller
   };
+
+  // Remove undefined fields to prevent overwriting with null if not intended
+  Object.keys(updates).forEach(key => updates[key] === undefined && delete updates[key]);
   
   const { data, error } = await supabase
     .from('products')
@@ -164,7 +206,10 @@ app.put('/api/products/:id', async (req, res) => {
     .select()
     .single();
     
-  if (error) return res.status(500).json({ error: error.message });
+  if (error) {
+    console.error('[Supabase Error] Updating product:', error);
+    return res.status(500).json({ error: error.message });
+  }
   res.json(data);
 });
 

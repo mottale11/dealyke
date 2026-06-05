@@ -1483,6 +1483,127 @@ export default function App() {
               )}
             </section>
 
+            {/* CMS Section 8: SPONSORED ADS MANAGEMENT */}
+            {adminPanel === 'sponsored-ads' && (
+              <div className="space-y-6 animate-fade-in">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <h3 className="font-serif text-xl font-bold">Sponsored Ad Campaigns</h3>
+                    <p className="text-xs text-zinc-500 mt-1">Manage the sponsored ad cards displayed across the platform sidebars and deal drops.</p>
+                  </div>
+                  <button 
+                    onClick={() => setEditingBanner({
+                      image: '',
+                      title: '',
+                      subtitle: '',
+                      link: '',
+                      active: true
+                    })}
+                    className="bg-[#D9411E] hover:bg-black text-white font-mono uppercase text-xs tracking-wider px-4 py-2 flex items-center gap-1 font-bold transition"
+                  >
+                    <Plus className="h-4 w-4" /> New Ad Campaign
+                  </button>
+                </div>
+
+                {editingBanner && (
+                  <form onSubmit={handleSaveBanner} className="border border-[#D9411E] bg-white p-6 space-y-4 max-w-2xl font-mono text-xs">
+                    <div className="flex justify-between border-b pb-2 mb-4">
+                      <h4 className="font-serif text-base font-bold text-[#D9411E] uppercase">
+                        {editingBanner.id ? 'Modify Campaign' : 'Configure New Ad'}
+                      </h4>
+                      <button type="button" onClick={() => setEditingBanner(null)}>
+                        <X className="h-4 w-4 text-zinc-400" />
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="font-bold">Campaign Title</label>
+                        <input 
+                          type="text" 
+                          value={editingBanner.title || ''} 
+                          onChange={(e) => setEditingBanner({...editingBanner, title: e.target.value})}
+                          required
+                          className="w-full bg-[#FCFBFA] border p-2 text-xs"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="font-bold">Subtitle / Call to Action</label>
+                        <input 
+                          type="text" 
+                          value={editingBanner.subtitle || ''} 
+                          onChange={(e) => setEditingBanner({...editingBanner, subtitle: e.target.value})}
+                          className="w-full bg-[#FCFBFA] border p-2 text-xs"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="font-bold">Image URL</label>
+                        <input 
+                          type="text" 
+                          value={editingBanner.image || ''} 
+                          onChange={(e) => setEditingBanner({...editingBanner, image: e.target.value})}
+                          required
+                          className="w-full bg-[#FCFBFA] border p-2 text-xs"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="font-bold">Target Link (Internal or External)</label>
+                        <input 
+                          type="text" 
+                          value={editingBanner.link || ''} 
+                          onChange={(e) => setEditingBanner({...editingBanner, link: e.target.value})}
+                          className="w-full bg-[#FCFBFA] border p-2 text-xs"
+                        />
+                      </div>
+                      <div className="flex items-center gap-2 pt-2">
+                        <input 
+                          type="checkbox" 
+                          checked={editingBanner.active} 
+                          onChange={(e) => setEditingBanner({...editingBanner, active: e.target.checked})}
+                          className="accent-[#D9411E]"
+                        />
+                        <label className="font-bold">Active & Visible</label>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-2 justify-end pt-4">
+                      <button type="button" onClick={() => setEditingBanner(null)} className="bg-zinc-200 text-zinc-700 px-4 py-2 hover:bg-zinc-350 font-bold">Cancel</button>
+                      <button type="submit" className="bg-[#D9411E] text-white px-6 py-2 hover:bg-black font-bold transition">Save Campaign</button>
+                    </div>
+                  </form>
+                )}
+
+                <div className="border border-[#121212]/15 bg-white font-mono text-xs overflow-x-auto">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="bg-[#121212] text-white uppercase tracking-widest text-[9px]">
+                        <th className="p-3">Ad Title</th>
+                        <th className="p-3">Subtitle</th>
+                        <th className="p-3 text-center">Status</th>
+                        <th className="p-3 text-right">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-[#121212]/10">
+                      {banners.map((b) => (
+                        <tr key={b.id} className="hover:bg-zinc-50">
+                          <td className="p-3 font-bold">{b.title}</td>
+                          <td className="p-3 text-zinc-500">{b.subtitle}</td>
+                          <td className="p-3 text-center">
+                            <span className={`px-2 py-0.5 text-[8px] font-bold uppercase tracking-tighter rounded ${b.active ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                              {b.active ? 'Active' : 'Paused'}
+                            </span>
+                          </td>
+                          <td className="p-3 text-right space-x-2 whitespace-nowrap">
+                            <button onClick={() => setEditingBanner(b)} className="text-blue-700 hover:underline">Edit</button>
+                            <button onClick={() => handleDeleteBanner(b.id)} className="text-red-600 hover:underline">Delete</button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
           </div>
         )}
 
@@ -2128,6 +2249,12 @@ export default function App() {
                 >
                   Clicks Analytics ({clicks.length})
                 </button>
+                <button
+                  onClick={() => setAdminPanel('sponsored-ads')}
+                  className={`px-3 py-1.5 border transition ${adminPanel === 'sponsored-ads' ? 'bg-[#121212] text-white border-black font-bold' : 'bg-white border-zinc-200 hover:bg-zinc-50'}`}
+                >
+                  Sponsored Ads
+                </button>
               </div>
             </div>
 
@@ -2158,14 +2285,15 @@ export default function App() {
                   <h3 className="font-serif text-xl font-bold">Manage Curated Catalog Rows</h3>
                   <button 
                     onClick={() => setEditingProduct({
-                      title: 'New Infinix Note Pro',
-                      description: 'Supreme smartphone value with heavy RAM capacity.',
-                      price: 24500,
-                      originalPrice: 28000,
+                      title: '',
+                      description: '',
+                      price: 0,
+                      originalPrice: 0,
                       source: ProductSource.JFORCE,
                       category: 'phones',
-                      imageUrl: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=400',
-                      specifications: ['RAM: 8GB', 'Storage: 128GB', 'Battery: 5000mAh'],
+                      imageUrl: '',
+                      imageGallery: [],
+                      specifications: [],
                       availability: true
                     })}
                     className="bg-[#D9411E] hover:bg-black text-white font-mono uppercase text-xs tracking-wider px-4 py-2 flex items-center gap-1 font-bold"
@@ -2195,25 +2323,28 @@ export default function App() {
                           onChange={(e) => setEditingProduct({...editingProduct, title: e.target.value})}
                           required
                           className="w-full bg-[#FCFBFA] border p-2"
+                          placeholder="e.g. Samsung Galaxy S24 Ultra"
                         />
                       </div>
                       <div className="space-y-2">
                         <label className="font-bold">Est price KES</label>
                         <input 
                           type="number" 
-                          value={editingProduct.price || 0} 
+                          value={editingProduct.price || ''} 
                           onChange={(e) => setEditingProduct({...editingProduct, price: Number(e.target.value)})}
                           required
                           className="w-full bg-[#FCFBFA] border p-2"
+                          placeholder="25000"
                         />
                       </div>
                       <div className="space-y-2">
                         <label className="font-bold">Original price KES</label>
                         <input 
                           type="number" 
-                          value={editingProduct.originalPrice || 0} 
+                          value={editingProduct.originalPrice || ''} 
                           onChange={(e) => setEditingProduct({...editingProduct, originalPrice: Number(e.target.value)})}
                           className="w-full bg-[#FCFBFA] border p-2"
+                          placeholder="30000"
                         />
                       </div>
                       <div className="space-y-2">
@@ -2228,13 +2359,54 @@ export default function App() {
                         </select>
                       </div>
                       <div className="space-y-2">
-                        <label className="font-bold">Image display URL</label>
+                        <label className="font-bold">Main Image URL</label>
                         <input 
                           type="text" 
+                          placeholder="Primary display image..."
                           value={editingProduct.imageUrl || ''} 
                           onChange={(e) => setEditingProduct({...editingProduct, imageUrl: e.target.value})}
                           className="w-full bg-[#FCFBFA] border p-2"
                         />
+                      </div>
+                      <div className="space-y-2 col-span-1 sm:col-span-2">
+                        <label className="font-bold block uppercase text-[10px] text-zinc-500 tracking-widest">Image Gallery (Multi-image support)</label>
+                        <div className="grid grid-cols-1 gap-2">
+                          {(editingProduct.imageGallery || []).map((url, idx) => (
+                            <div key={idx} className="flex gap-2">
+                              <input 
+                                type="text"
+                                value={url}
+                                onChange={(e) => {
+                                  const newGallery = [...(editingProduct.imageGallery || [])];
+                                  newGallery[idx] = e.target.value;
+                                  setEditingProduct({...editingProduct, imageGallery: newGallery});
+                                }}
+                                className="flex-1 bg-[#FCFBFA] border p-1.5 text-[11px]"
+                                placeholder="https://..."
+                              />
+                              <button 
+                                type="button"
+                                onClick={() => {
+                                  const newGallery = (editingProduct.imageGallery || []).filter((_, i) => i !== idx);
+                                  setEditingProduct({...editingProduct, imageGallery: newGallery});
+                                }}
+                                className="text-red-500 hover:text-red-700 p-1"
+                              >
+                                <X className="h-4 w-4" />
+                              </button>
+                            </div>
+                          ))}
+                          <button 
+                            type="button"
+                            onClick={() => {
+                              const newGallery = [...(editingProduct.imageGallery || []), ''];
+                              setEditingProduct({...editingProduct, imageGallery: newGallery});
+                            }}
+                            className="text-[10px] font-bold text-[#D9411E] hover:underline text-left"
+                          >
+                            + Add Another Image URL
+                          </button>
+                        </div>
                       </div>
                       <div className="space-y-2">
                         <label className="font-bold">Category Level slug</label>
@@ -2551,12 +2723,12 @@ export default function App() {
                   <h3 className="font-serif text-xl font-bold">Spawning Comparison Articles</h3>
                   <button 
                     onClick={() => setEditingBlog({
-                      title: 'Comparing Xiaomi Redmi 13 vs Tecno Spark 20',
-                      summary: 'A direct head-to-head comparison reviewing screens and gaming speeds for students.',
-                      content: 'Detailed smartphone parameters show standard G99 processor performs reliably on budget tiers under KES 20k.',
+                      title: '',
+                      summary: '',
+                      content: '',
                       author: 'Dealy KE Tech Editor',
-                      imageUrl: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=400',
-                      tags: ['comparison', 'budget', 'phones']
+                      imageUrl: '',
+                      tags: []
                     })}
                     className="bg-[#D9411E] text-white font-mono uppercase text-xs tracking-wider px-4 py-2 font-bold"
                   >
@@ -2576,6 +2748,7 @@ export default function App() {
                           onChange={(e) => setEditingBlog({...editingBlog, title: e.target.value})}
                           required
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
+                          placeholder="Headline for the buying guide..."
                         />
                       </div>
                       <div className="space-y-2">
@@ -2585,6 +2758,7 @@ export default function App() {
                           value={editingBlog.summary || ''} 
                           onChange={(e) => setEditingBlog({...editingBlog, summary: e.target.value})}
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
+                          placeholder="Brief overview for the card display..."
                         />
                       </div>
                     </div>
@@ -2597,6 +2771,7 @@ export default function App() {
                         onChange={(e) => setEditingBlog({...editingBlog, content: e.target.value})}
                         required
                         className="w-full bg-[#FCFBFA] border p-2 text-xs"
+                        placeholder="Detailed article content..."
                       />
                     </div>
 
