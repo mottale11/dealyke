@@ -127,7 +127,7 @@ app.get('/api/products', async (req, res) => {
   try {
     const { data, error } = await supabase!
       .from('products')
-      .select('*')
+      .select('*, categories(slug)')
       .order('created_at', { ascending: false });
     
     if (error) {
@@ -145,7 +145,8 @@ app.get('/api/products', async (req, res) => {
       affiliateUrl: p.affiliate_url,
       topSeller: p.top_seller,
       rating: Number(p.rating) || 5.0,
-      reviewsCount: p.reviews_count || 0
+      reviewsCount: p.reviews_count || 0,
+      category: p.categories?.slug || 'phones'
     }));
     
     res.json(mappedData);

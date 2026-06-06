@@ -16,6 +16,9 @@ import { UserRole, ProductSource, OrderStatus, Product, Category, Order, Review,
 import Header from './components/Header';
 import AuthModal from './components/AuthModal';
 import { supabase } from './lib/supabase';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import herodealyImage from './assets/images/herodealy.png';
 
 // Page Imports
 import ContactUs from './pages/ContactUs';
@@ -54,7 +57,11 @@ export default function App() {
   
   // Active/Detail views
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
   const [activeBlog, setActiveBlog] = useState<Blog | null>(null);
+
+  // Reset gallery index when switching products
+  useEffect(() => { setActiveGalleryIndex(0); }, [selectedProduct]);
   
   // Forms & Modals
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -690,9 +697,9 @@ export default function App() {
 
   // Client side search and category filters
   const filteredProducts = products.filter(p => {
-    const matchesSearch = p.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          p.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          p.category.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = (p.title || '').toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          (p.description || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          (p.category || '').toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'all' || p.category === selectedCategory;
     const matchesSource = selectedSource === 'all' || p.source === selectedSource;
     const matchesPrice = p.price <= priceMax;
@@ -1083,54 +1090,65 @@ export default function App() {
                 </div>
 
                 {/* SMALL BOX DISPLAY FOR ADS */}
-                <div className="pt-4 border-t border-[#121212]/10 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[8px] font-mono leading-none tracking-widest text-[#D9411E] font-extrabold bg-red-50 px-1.5 py-0.5 border border-red-200">
-                      SPONSORED AD
-                    </span>
-                    <span className="text-[8px] font-mono text-zinc-400">PARTNER CAMPAIGN</span>
-                  </div>
+                {(() => {
+                  const activeBanner = banners.find(b => b.active);
+                  if (!activeBanner) return null;
                   
-                  <div 
-                    onClick={() => {
-                      setSelectedCategory('phones');
-                      setActiveTab('catalog');
-                      showToast('Redirected to sponsored Tecno Phantom deal catalog!');
-                    }}
-                    className="group/ad bg-gradient-to-br from-amber-50/50 to-orange-50/50 hover:from-orange-50 hover:to-amber-50 border border-amber-200 hover:border-[#D9411E] py-5 px-3 text-left transition-all duration-300 cursor-pointer relative overflow-hidden"
-                  >
-                    {/* Tiny decorative watermark */}
-                    <div className="absolute -right-4 -bottom-4 opacity-5 pointer-events-none group-hover/ad:scale-110 transition duration-500">
-                      <ShoppingBag className="h-16 w-16 text-black" />
-                    </div>
-                    
-                    <div className="flex items-start gap-2.5">
-                      <div className="h-10 w-10 shrink-0 bg-white border border-amber-200 overflow-hidden relative">
-                        <img 
-                          src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=100" 
-                          alt="Tecno Promotion" 
-                          className="w-full h-full object-cover grayscale group-hover/ad:grayscale-0 transition duration-500"
-                        />
+                  return (
+                    <div className="pt-4 border-t border-[#121212]/10 space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[8px] font-mono leading-none tracking-widest text-[#D9411E] font-extrabold bg-red-50 px-1.5 py-0.5 border border-red-200">
+                          SPONSORED AD
+                        </span>
+                        <span className="text-[8px] font-mono text-zinc-400">PARTNER CAMPAIGN</span>
                       </div>
-                      <div className="space-y-0.5 min-w-0">
-                        <h4 className="font-serif font-black text-[11px] text-[#121212] tracking-tight truncate flex items-center gap-1">
-                          Safaricom 5G + Phantom V Fold
-                          <ArrowUpRight className="h-2.5 w-2.5 text-[#D9411E] opacity-0 group-hover/ad:opacity-100 transition duration-300" />
-                        </h4>
-                        <p className="text-[10px] text-zinc-500 leading-tight font-sans text-ellipsis line-clamp-2">
-                          Get complimentary 50GB local JForce data bundle with active serial keying validations.
-                        </p>
+                      
+                      <div 
+                        onClick={() => {
+                          if (activeBanner.link) {
+                            if (activeBanner.link.startsWith('http')) {
+                              window.open(activeBanner.link, '_blank');
+                            } else {
+                              window.location.href = activeBanner.link;
+                            }
+                          }
+                        }}
+                        className="group/ad bg-gradient-to-br from-amber-50/50 to-orange-50/50 hover:from-orange-50 hover:to-amber-50 border border-amber-200 hover:border-[#D9411E] py-5 px-3 text-left transition-all duration-300 cursor-pointer relative overflow-hidden"
+                      >
+                        {/* Tiny decorative watermark */}
+                        <div className="absolute -right-4 -bottom-4 opacity-5 pointer-events-none group-hover/ad:scale-110 transition duration-500">
+                          <ShoppingBag className="h-16 w-16 text-black" />
+                        </div>
+                        
+                        <div className="flex items-start gap-2.5">
+                          <div className="h-10 w-10 shrink-0 bg-white border border-amber-200 overflow-hidden relative">
+                            <img 
+                              src={activeBanner.image || "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=100"} 
+                              alt={activeBanner.title} 
+                              className="w-full h-full object-cover grayscale group-hover/ad:grayscale-0 transition duration-500"
+                            />
+                          </div>
+                          <div className="space-y-0.5 min-w-0">
+                            <h4 className="font-serif font-black text-[11px] text-[#121212] tracking-tight truncate flex items-center gap-1">
+                              {activeBanner.title}
+                              <ArrowUpRight className="h-2.5 w-2.5 text-[#D9411E] opacity-0 group-hover/ad:opacity-100 transition duration-300" />
+                            </h4>
+                            <p className="text-[10px] text-zinc-500 leading-tight font-sans text-ellipsis line-clamp-2">
+                              {activeBanner.subtitle}
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-2 flex items-center justify-between text-[9px] font-mono border-t border-amber-200/50 pt-2 text-[#D9411E] font-bold">
+                          <span className="uppercase tracking-tighter">CLICK TO VIEW OFFER</span>
+                          <span className="bg-[#D9411E] text-white px-1 py-0.2 text-[8px] uppercase tracking-wider font-extrabold group-hover/ad:bg-[#121212] transition duration-300">
+                            PROMO ACTIVE
+                          </span>
+                        </div>
                       </div>
                     </div>
-                    
-                    <div className="mt-2 flex items-center justify-between text-[9px] font-mono border-t border-amber-200/50 pt-2 text-[#D9411E] font-bold">
-                      <span className="uppercase tracking-tighter">CLAIM AIRTIME BONUS</span>
-                      <span className="bg-[#D9411E] text-white px-1 py-0.2 text-[8px] uppercase tracking-wider font-extrabold group-hover/ad:bg-[#121212] transition duration-300">
-                        KES 0.00 SIM
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  );
+                })()}
 
                 {/* DEALY KE BRANDED SHOWCASE BANNER */}
                 <div className="pt-4 border-t border-[#121212]/10 space-y-2">
@@ -1142,7 +1160,7 @@ export default function App() {
                   </div>
                   <div className="border border-[#121212]/10 bg-[#FCFBFA] p-1.5 hover:border-black transition-all">
                     <img 
-                      src="/src/assets/images/herodealy.png" 
+                      src={herodealyImage} 
                       alt="DealyKE - Your Smart Way to Shop & Save" 
                       className="w-full h-auto object-cover border border-[#121212]/5"
                       referrerPolicy="no-referrer" 
@@ -1929,9 +1947,10 @@ export default function App() {
                 </div>
 
                 {/* Body details */}
-                <div className="prose max-w-none text-[#121212]/80 leading-relaxed text-sm md:text-base space-y-4 whitespace-pre-line font-sans pt-3">
-                  {activeBlog.content}
-                </div>
+                <div 
+                  className="prose max-w-none text-[#121212]/80 leading-relaxed text-sm md:text-base space-y-4 font-sans pt-3" 
+                  dangerouslySetInnerHTML={{ __html: activeBlog.content }} 
+                />
 
                 {/* Bottom related action */}
                 <div className="p-6 bg-[#F2F0ED] border border-zinc-350 space-y-3 text-center">
@@ -2448,60 +2467,17 @@ export default function App() {
                     <div className="space-y-4">
                       <div className="space-y-2">
                         <div className="flex justify-between items-center">
-                          <label className="font-bold block">Product Story & Detailed Description</label>
-                          <div className="flex gap-2">
-                            <button 
-                              type="button"
-                              onClick={() => {
-                                const ta = document.getElementById('product-desc-editor') as HTMLTextAreaElement;
-                                if (!ta) return;
-                                const start = ta.selectionStart;
-                                const end = ta.selectionEnd;
-                                const text = ta.value;
-                                const before = text.substring(0, start);
-                                const after = text.substring(end, text.length);
-                                const selected = text.substring(start, end);
-                                setEditingProduct({...editingProduct, description: before + `**${selected}**` + after});
-                              }}
-                              className="text-[9px] bg-zinc-100 border border-zinc-300 px-2 py-0.5 hover:bg-zinc-200 font-bold"
-                            >
-                              BOLD
-                            </button>
-                            <button 
-                              type="button"
-                              onClick={() => {
-                                const ta = document.getElementById('product-desc-editor') as HTMLTextAreaElement;
-                                if (!ta) return;
-                                const start = ta.selectionStart;
-                                const text = ta.value;
-                                const before = text.substring(0, start);
-                                const after = text.substring(start, text.length);
-                                setEditingProduct({...editingProduct, description: before + "\n• " + after});
-                              }}
-                              className="text-[9px] bg-zinc-100 border border-zinc-300 px-2 py-0.5 hover:bg-zinc-200 font-bold"
-                            >
-                              BULLET
-                            </button>
-                            <button 
-                              type="button"
-                              onClick={() => {
-                                setEditingProduct({...editingProduct, description: editingProduct.description + "\n\n"});
-                              }}
-                              className="text-[9px] bg-zinc-100 border border-zinc-300 px-2 py-0.5 hover:bg-zinc-200 font-bold"
-                            >
-                              NEW PARA
-                            </button>
-                          </div>
+                          <label className="font-bold block mb-2">Product Story & Detailed Description</label>
                         </div>
-                        <textarea 
-                          id="product-desc-editor"
-                          rows={8}
-                          value={editingProduct.description || ''} 
-                          onChange={(e) => setEditingProduct({...editingProduct, description: e.target.value})}
-                          placeholder="Write the detailed product story here. Use the buttons above for basic formatting..."
-                          className="w-full bg-[#FCFBFA] border p-3 text-sm font-sans leading-relaxed focus:border-[#D9411E] focus:outline-none transition-colors"
-                        />
-                        <p className="text-[9px] text-zinc-400 italic">*Text uses 'whitespace-pre-line' logic. Line breaks in the editor will appear on the product page.</p>
+                        <div className="mb-12">
+                          <ReactQuill 
+                            theme="snow"
+                            value={editingProduct.description || ''} 
+                            onChange={(val) => setEditingProduct({...editingProduct, description: val})}
+                            className="w-full bg-[#FCFBFA]"
+                            placeholder="Write the detailed product story here..."
+                          />
+                        </div>
                       </div>
 
                       <div className="space-y-2 border-t pt-4">
@@ -2763,14 +2739,13 @@ export default function App() {
                       </div>
                     </div>
 
-                    <div className="space-y-2">
-                      <label className="font-bold">Content Text Body</label>
-                      <textarea 
-                        rows={6}
+                    <div className="space-y-2 mb-10">
+                      <label className="font-bold block mb-2">Content Text Body</label>
+                      <ReactQuill 
+                        theme="snow"
                         value={editingBlog.content || ''} 
-                        onChange={(e) => setEditingBlog({...editingBlog, content: e.target.value})}
-                        required
-                        className="w-full bg-[#FCFBFA] border p-2 text-xs"
+                        onChange={(val) => setEditingBlog({...editingBlog, content: val})}
+                        className="w-full bg-[#FCFBFA]"
                         placeholder="Detailed article content..."
                       />
                     </div>
@@ -3603,9 +3578,57 @@ export default function App() {
               <div className="flex flex-col space-y-8">
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-start">
-                  {/* Image side with border display */}
-                  <div className="aspect-square bg-[#F2F0ED] border border-zinc-200 overflow-hidden relative flex items-center justify-center">
-                    <img src={selectedProduct.imageUrl} alt={selectedProduct.title} className="max-w-full max-h-full object-contain" />
+                  {/* Image side with gallery support */}
+                  <div className="space-y-2">
+                    {(() => {
+                      const allImages = [selectedProduct.imageUrl, ...(selectedProduct.imageGallery || []).filter(url => url && url.trim() !== '')];
+                      const safeIndex = activeGalleryIndex < allImages.length ? activeGalleryIndex : 0;
+                      return (
+                        <>
+                          <div className="aspect-square bg-[#F2F0ED] border border-zinc-200 overflow-hidden relative flex items-center justify-center">
+                            <img src={allImages[safeIndex]} alt={selectedProduct.title} className="max-w-full max-h-full object-contain" />
+                            {allImages.length > 1 && (
+                              <>
+                                <button
+                                  onClick={(e) => { e.stopPropagation(); setActiveGalleryIndex(safeIndex === 0 ? allImages.length - 1 : safeIndex - 1); }}
+                                  className="absolute left-1.5 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white border border-zinc-200 p-1.5 shadow-sm transition"
+                                  aria-label="Previous image"
+                                >
+                                  <ChevronLeft className="h-4 w-4 text-zinc-700" />
+                                </button>
+                                <button
+                                  onClick={(e) => { e.stopPropagation(); setActiveGalleryIndex(safeIndex === allImages.length - 1 ? 0 : safeIndex + 1); }}
+                                  className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white border border-zinc-200 p-1.5 shadow-sm transition"
+                                  aria-label="Next image"
+                                >
+                                  <ChevronRight className="h-4 w-4 text-zinc-700" />
+                                </button>
+                                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/60 text-white text-[9px] font-mono px-2 py-0.5 tracking-wider">
+                                  {safeIndex + 1} / {allImages.length}
+                                </div>
+                              </>
+                            )}
+                          </div>
+                          {allImages.length > 1 && (
+                            <div className="flex gap-1.5 overflow-x-auto pb-1">
+                              {allImages.map((imgUrl, imgIdx) => (
+                                <button
+                                  key={imgIdx}
+                                  onClick={() => setActiveGalleryIndex(imgIdx)}
+                                  className={`h-14 w-14 shrink-0 border-2 overflow-hidden transition ${
+                                    imgIdx === safeIndex
+                                      ? 'border-[#D9411E] opacity-100'
+                                      : 'border-zinc-200 opacity-60 hover:opacity-100'
+                                  }`}
+                                >
+                                  <img src={imgUrl} alt={`${selectedProduct.title} ${imgIdx + 1}`} className="h-full w-full object-cover" />
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                        </>
+                      );
+                    })()}
                   </div>
 
                   {/* Parameter details list */}
@@ -3685,9 +3708,10 @@ export default function App() {
                 <div className="border-t border-[#121212]/10 pt-6">
                   <span className="font-mono text-[10px] text-[#D9411E] font-bold block uppercase mb-3">PRODUCT STORY & DETAILS</span>
                   <div className="bg-white border border-[#121212]/5 p-6 shadow-sm">
-                    <p className="text-sm md:text-base text-zinc-700 leading-relaxed font-sans whitespace-pre-line">
-                      {selectedProduct.description}
-                    </p>
+                    <div 
+                      className="text-sm md:text-base text-zinc-700 leading-relaxed font-sans prose max-w-none"
+                      dangerouslySetInnerHTML={{ __html: selectedProduct.description }}
+                    />
                   </div>
                 </div>
 

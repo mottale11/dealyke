@@ -1,0 +1,1220 @@
+TimeUTC,timestampInMs,requestPath,requestMethod,requestQueryString,responseStatusCode,requestId,requestUserAgent,level,environment,branch,vercelCache,type,function,host,deploymentDomain,deploymentId,durationMs,region,maxMemoryUsed,memorySize,message,projectId,traceId,sessionId,invocationId,instanceId,concurrency,workflowRunId,workflowStepId
+2026-06-06 11:05:55,1780743955483,dealykenya.vercel.app/api/categories,POST,path=categories,500,vxnsh-1780743954705-9f51c97950a5,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya-4nu1ah4ng-moses-projects-07e7e7e9.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:05:54,1780743954705,dealykenya.vercel.app/api/categories,POST,path=categories,500,vxnsh-1780743954705-9f51c97950a5,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya-4nu1ah4ng-moses-projects-07e7e7e9.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,642,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9RRCBHBDK9GVN16ER7M0S,,-1,,
+2026-06-06 11:05:55,1780743955456,dealykenya.vercel.app/api/categories,POST,path=categories,500,6r5xj-1780743954704-4b8ab2c31ac3,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya-4nu1ah4ng-moses-projects-07e7e7e9.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:05:54,1780743954704,dealykenya.vercel.app/api/categories,POST,path=categories,500,6r5xj-1780743954704-4b8ab2c31ac3,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya-4nu1ah4ng-moses-projects-07e7e7e9.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,618,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9RRC8VP451FESX9819T05,,-1,,
+2026-06-06 11:05:55,1780743955187,dealykenya.vercel.app/api/categories,POST,path=categories,500,qq7gf-1780743954443-050566f86dc8,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:05:54,1780743954443,dealykenya.vercel.app/api/categories,POST,path=categories,500,qq7gf-1780743954443-050566f86dc8,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,607,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9RR495J4ZY1ZM3ATBY1CY,,-1,,
+2026-06-06 11:05:55,1780743955243,dealykenya.vercel.app/api/categories,POST,path=categories,500,vxnsh-1780743954403-530bc6e61979,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:05:54,1780743954403,dealykenya.vercel.app/api/categories,POST,path=categories,500,vxnsh-1780743954403-530bc6e61979,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,698,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9RR2X8D15ZVGC2XGQVTZE,,-1,,
+2026-06-06 11:05:54,1780743954946,dealykenya.vercel.app/api/categories,POST,path=categories,500,g6g6q-1780743954164-8f6ea01d35a2,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya-4nu1ah4ng-moses-projects-07e7e7e9.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:05:54,1780743954164,dealykenya.vercel.app/api/categories,POST,path=categories,500,g6g6q-1780743954164-8f6ea01d35a2,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya-4nu1ah4ng-moses-projects-07e7e7e9.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,645,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9RQVEJYC7K22SSRY0SZA0,,-1,,
+2026-06-06 11:05:54,1780743954919,dealykenya.vercel.app/api/categories,POST,path=categories,500,tnhqn-1780743954144-8f8d1f5da411,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:05:54,1780743954144,dealykenya.vercel.app/api/categories,POST,path=categories,500,tnhqn-1780743954144-8f8d1f5da411,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,634,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9RQV1C2V9VATQGN1X5ZE2,,-1,,
+2026-06-06 11:05:53,1780743953878,dealykenya.vercel.app/api/categories,POST,path=categories,500,zm5xz-1780743953084-3bf2b0d337f2,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya-4nu1ah4ng-moses-projects-07e7e7e9.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:05:53,1780743953084,dealykenya.vercel.app/api/categories,POST,path=categories,500,zm5xz-1780743953084-3bf2b0d337f2,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya-4nu1ah4ng-moses-projects-07e7e7e9.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,636,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9RPTBNXGYSBDF1Y3K5E9H,,-1,,
+2026-06-06 11:05:49,1780743949621,dealykenya.vercel.app/api/categories,GET,path=categories,500,zm5xz-1780743948834-50121ef5f53d,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya-4nu1ah4ng-moses-projects-07e7e7e9.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:05:48,1780743948834,dealykenya.vercel.app/api/categories,GET,path=categories,500,zm5xz-1780743948834-50121ef5f53d,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya-4nu1ah4ng-moses-projects-07e7e7e9.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,651,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9RJMXFG31WPW7Z5QT8TT6,,-1,,
+2026-06-06 11:04:56,1780743896247,dealykenya.vercel.app/api/clicks,GET,path=clicks,500,r89sq-1780743895555-157a0661a2b7,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:04:55,1780743895555,dealykenya.vercel.app/api/clicks,GET,path=clicks,500,r89sq-1780743895555-157a0661a2b7,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,526,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9PYMPZEQQEDCE8PATGEJF,,-1,,
+2026-06-06 11:04:56,1780743896297,dealykenya.vercel.app/api/wishlist/GUEST,GET,path=wishlist%2FGUEST,500,zm5xz-1780743895554-d05207818014,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:04:55,1780743895554,dealykenya.vercel.app/api/wishlist/GUEST,GET,path=wishlist%2FGUEST,500,zm5xz-1780743895554-d05207818014,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,601,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9PYKV80ZMSA90M405DYKV,,-1,,
+2026-06-06 11:04:56,1780743896288,dealykenya.vercel.app/api/reviews,GET,path=reviews,500,vxnsh-1780743895554-a4370804cc29,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:04:55,1780743895554,dealykenya.vercel.app/api/reviews,GET,path=reviews,500,vxnsh-1780743895554-a4370804cc29,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,598,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9PYKT6JY201DP8Z6GCGRQ,,-1,,
+2026-06-06 11:04:56,1780743896309,dealykenya.vercel.app/api/testimonials,GET,path=testimonials,500,nbx5j-1780743895554-974101b151dc,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:04:55,1780743895554,dealykenya.vercel.app/api/testimonials,GET,path=testimonials,500,nbx5j-1780743895554-974101b151dc,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,602,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9PYKT6JY201DP8YX40S99,,-1,,
+2026-06-06 11:04:56,1780743896296,dealykenya.vercel.app/api/banners,GET,path=banners,500,g8wl7-1780743895554-786588cb4055,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:04:55,1780743895554,dealykenya.vercel.app/api/banners,GET,path=banners,500,g8wl7-1780743895554-786588cb4055,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,585,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9PYMBS3704WQHVXMA8D17,,-1,,
+2026-06-06 11:04:56,1780743896372,dealykenya.vercel.app/api/notifications,GET,path=notifications,500,g8wl7-1780743895554-59ac167d1fc5,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:04:55,1780743895554,dealykenya.vercel.app/api/notifications,GET,path=notifications,500,g8wl7-1780743895554-59ac167d1fc5,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,675,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9PYKV80ZMSA90M7JX8RME,,-1,,
+2026-06-06 11:04:56,1780743896303,dealykenya.vercel.app/api/orders,GET,path=orders,500,7hr27-1780743895554-3fbd401a3b19,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:04:55,1780743895554,dealykenya.vercel.app/api/orders,GET,path=orders,500,7hr27-1780743895554-3fbd401a3b19,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,617,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9PYKT6JY201DP92KRW0EK,,-1,,
+2026-06-06 11:04:56,1780743896310,dealykenya.vercel.app/api/faqs,GET,path=faqs,500,crl2z-1780743895544-7ba081db4e57,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:04:55,1780743895544,dealykenya.vercel.app/api/faqs,GET,path=faqs,500,crl2z-1780743895544-7ba081db4e57,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,624,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9PYKM1VF1V8GBE152M80K,,-1,,
+2026-06-06 11:04:56,1780743896231,dealykenya.vercel.app/api/categories,GET,path=categories,500,vw8l8-1780743895543-c8dafe7fe167,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:04:55,1780743895543,dealykenya.vercel.app/api/categories,GET,path=categories,500,vw8l8-1780743895543-c8dafe7fe167,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,546,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9PYKGQM2JNN7N05H2G33N,,-1,,
+2026-06-06 11:04:56,1780743896302,dealykenya.vercel.app/api/products,GET,path=products,500,gj446-1780743895543-b9e11d0608da,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:04:55,1780743895543,dealykenya.vercel.app/api/products,GET,path=products,500,gj446-1780743895543-b9e11d0608da,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,620,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9PYKGQM2JNN7N04P2GZC6,,-1,,
+2026-06-06 11:04:56,1780743896311,dealykenya.vercel.app/api/blogs,GET,path=blogs,500,gj446-1780743895543-528607ab69e6,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:04:55,1780743895543,dealykenya.vercel.app/api/blogs,GET,path=blogs,500,gj446-1780743895543-528607ab69e6,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,630,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9PYKDEC5S55PSBBJFW3SY,,-1,,
+2026-06-06 11:01:26,1780743686166,dealykenya.vercel.app/api/wishlist/GUEST,GET,path=wishlist%2FGUEST,500,vw8l8-1780743684084-e31b7db5d137,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:01:24,1780743684084,dealykenya.vercel.app/api/wishlist/GUEST,GET,path=wishlist%2FGUEST,500,vw8l8-1780743684084-e31b7db5d137,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,776,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9GG3DCTYF9DSH36RJ59CH,,-1,,
+2026-06-06 11:01:25,1780743685998,dealykenya.vercel.app/api/clicks,GET,path=clicks,500,gj446-1780743684084-6cf32cb6650a,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:01:24,1780743684084,dealykenya.vercel.app/api/clicks,GET,path=clicks,500,gj446-1780743684084-6cf32cb6650a,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,589,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9GG3RA3WREAP3A8DV2NKP,,-1,,
+2026-06-06 11:01:26,1780743686060,dealykenya.vercel.app/api/banners,GET,path=banners,500,4ks52-1780743684084-c28785759d28,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:01:24,1780743684084,dealykenya.vercel.app/api/banners,GET,path=banners,500,4ks52-1780743684084-c28785759d28,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,687,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9GG3HKBQ6XK1G8J7Q61KB,,-1,,
+2026-06-06 11:01:25,1780743685898,dealykenya.vercel.app/api/notifications,GET,path=notifications,500,tnhqn-1780743684083-0b922a629b97,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:01:24,1780743684083,dealykenya.vercel.app/api/notifications,GET,path=notifications,500,tnhqn-1780743684083-0b922a629b97,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,606,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9GG3HKBQ6XK1G8H4J7PWW,,-1,,
+2026-06-06 11:01:25,1780743685912,dealykenya.vercel.app/api/orders,GET,path=orders,500,tnhqn-1780743684074-3e3dbb76e8a9,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:01:24,1780743684074,dealykenya.vercel.app/api/orders,GET,path=orders,500,tnhqn-1780743684074-3e3dbb76e8a9,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,624,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9GG33G1HTZVNF97Z06QAE,,-1,,
+2026-06-06 11:01:25,1780743685872,dealykenya.vercel.app/api/testimonials,GET,path=testimonials,500,4xk7p-1780743684074-d4f6b6236d8f,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:01:24,1780743684074,dealykenya.vercel.app/api/testimonials,GET,path=testimonials,500,4xk7p-1780743684074-d4f6b6236d8f,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,606,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9GG33G1HTZVNF94BY31B3,,-1,,
+2026-06-06 11:01:25,1780743685971,dealykenya.vercel.app/api/reviews,GET,path=reviews,500,g8wl7-1780743684073-c696e822af8f,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:01:24,1780743684073,dealykenya.vercel.app/api/reviews,GET,path=reviews,500,g8wl7-1780743684073-c696e822af8f,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,644,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9GG349G43KQP1022FQ9PT,,-1,,
+2026-06-06 11:01:25,1780743685848,dealykenya.vercel.app/api/categories,GET,path=categories,500,zm5xz-1780743684064-75cb72c29fc8,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:01:24,1780743684064,dealykenya.vercel.app/api/categories,GET,path=categories,500,zm5xz-1780743684064-75cb72c29fc8,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,631,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9GG32R91RDBJT6799ZPGM,,-1,,
+2026-06-06 11:01:25,1780743685653,dealykenya.vercel.app/api/faqs,GET,path=faqs,500,nfh5v-1780743684064-f6a3b67f5475,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:01:24,1780743684064,dealykenya.vercel.app/api/faqs,GET,path=faqs,500,nfh5v-1780743684064-f6a3b67f5475,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,547,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9GG2RBXNVP4E19287JKQV,,-1,,
+2026-06-06 11:01:25,1780743685903,dealykenya.vercel.app/api/products,GET,path=products,500,g6g6q-1780743684064-08e3e9c0b93c,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:01:24,1780743684064,dealykenya.vercel.app/api/products,GET,path=products,500,g6g6q-1780743684064-08e3e9c0b93c,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,614,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9GG300RBY6B3VW3JPC21S,,-1,,
+2026-06-06 11:01:25,1780743685808,dealykenya.vercel.app/api/blogs,GET,path=blogs,500,4ks52-1780743684064-9fed1383c5e5,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",error,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,,,,,"Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Error: Cannot find module @rollup/rollup-linux-x64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/var/task/node_modules/rollup/dist/native.js:115:9)
+    at Object.<anonymous> (/var/task/node_modules/rollup/dist/native.js:124:76)
+    at Module.<anonymous> (/opt/rust/bytecode.js:2:1451)
+    at O.l._compile (/opt/rust/bytecode.js:2:3854)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1335:12)
+    at /opt/rust/nodejs.js:2:13533
+    at Module.Un (/opt/rust/nodejs.js:2:13911)
+    at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-x64-gnu'
+  Require stack:
+  - /var/task/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1242:25)
+      at /opt/rust/nodejs.js:2:13533
+      at Module.Un (/opt/rust/nodejs.js:2:13911)
+      at e.<computed>.rt._load (/opt/rust/nodejs.js:2:13503)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1556:12)
+      at s (/opt/rust/bytecode.js:2:1110) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/var/task/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.",prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,,,,,
+2026-06-06 11:01:24,1780743684064,dealykenya.vercel.app/api/blogs,GET,path=blogs,500,4ks52-1780743684064-9fed1383c5e5,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",,production,main,MISS,function,/api/index,dealykenya.vercel.app,dealykenya.vercel.app,dpl_D1p6YfYfbDkvz5JLU7o97fHEVJa7,606,iad1,-1,2048,,prj_sC81I25bgtOVXWnBF4AqMGdvbsPw,,,01KTE9GG300RBY6B3VW450XQN6,,-1,,
