@@ -8,7 +8,8 @@ import express from 'express';
 import path from 'path';
 import fs from 'fs';
 import { GoogleGenAI } from '@google/genai';
-import { createServer as createViteServer } from 'vite';
+// NOTE: Vite is imported dynamically in startServer() to avoid loading
+// Rollup's platform-specific native binaries in production/serverless.
 import { 
   UserRole, 
   ProductSource, 
@@ -1115,6 +1116,7 @@ model AuditLog {
 // Set up server-side routing
 async function startServer() {
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
