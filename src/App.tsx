@@ -19,6 +19,8 @@ import { supabase } from './lib/supabase';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import herodealyImage from './assets/images/herodealy.png';
+import { Analytics } from "@vercel/analytics/react";
+
 
 // Page Imports
 import ContactUs from './pages/ContactUs';
@@ -3965,6 +3967,7 @@ export default function App() {
         </button>
       )}
 
+      <Analytics />
     </div>
   );
 }
