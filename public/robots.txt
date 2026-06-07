@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://dealy.co.ke/sitemap.xml
+Sitemap: https://www.dealykenya.shop/sitemap.xml

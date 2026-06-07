@@ -4,11 +4,11 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  Search, ArrowRight, ChevronRight, ChevronLeft, Check, X, Heart, Share2, Star, 
-  MessageSquare, Plus, Edit, Trash2, Users, TrendingUp, Coins, 
-  ArrowUpRight, BookOpen, AlertCircle, ThumbsUp, Compass, Filter, 
-  SlidersHorizontal, Bot, Send, RefreshCw, Clock, User, MapPin, 
+import {
+  Search, ArrowRight, ChevronRight, ChevronLeft, Check, X, Heart, Share2, Star,
+  MessageSquare, Plus, Edit, Trash2, Users, TrendingUp, Coins,
+  ArrowUpRight, BookOpen, AlertCircle, ThumbsUp, Compass, Filter,
+  SlidersHorizontal, Bot, Send, RefreshCw, Clock, User, MapPin,
   Phone, Globe, FileJson, CheckCircle2, ShoppingBag, Eye,
   ChevronDown, CheckSquare, Calendar, Award, Copy, HelpCircle, EyeOff
 } from 'lucide-react';
@@ -30,7 +30,7 @@ export default function App() {
   const [currentRole, setCurrentRole] = useState<UserRole>(UserRole.GUEST);
   const [user, setUser] = useState<any>(null);
   const [activeTab, setActiveTab] = useState<string>('landing');
-  
+
   // Data State
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -46,7 +46,7 @@ export default function App() {
   const [editingCategory, setEditingCategory] = useState<Partial<Category> | null>(null);
   const [editingFAQ, setEditingFAQ] = useState<Partial<FAQ> | null>(null);
   const [editingBanner, setEditingBanner] = useState<Partial<HomepageBanner> | null>(null);
-  
+
   // Filtering & Sorting status
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -54,7 +54,7 @@ export default function App() {
   const [priceMax, setPriceMax] = useState<number>(100000);
   const [sortBy, setSortBy] = useState<string>('popularity');
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  
+
   // Active/Detail views
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
@@ -62,7 +62,7 @@ export default function App() {
 
   // Reset gallery index when switching products
   useEffect(() => { setActiveGalleryIndex(0); }, [selectedProduct]);
-  
+
   // Forms & Modals
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [loginModalAdminMode, setLoginModalAdminMode] = useState(false);
@@ -75,7 +75,7 @@ export default function App() {
     location: 'Milimani, Nairobi',
     notes: 'Please expedite logistics. Calling on reach.'
   });
-  
+
   const [reviewForm, setReviewForm] = useState({
     rating: 5,
     comment: '',
@@ -86,33 +86,33 @@ export default function App() {
     email: '',
     password: ''
   });
-  
+
   const [orderStatusFeedback, setOrderStatusFeedback] = useState<string | null>(null);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
-  
+
   // AI assistant state
   const [aiOpen, setAiOpen] = useState(false);
   const [aiInput, setAiInput] = useState('');
-  const [aiHistory, setAiHistory] = useState<Array<{role: string; text: string; linkProduct?: Product}>>([
+  const [aiHistory, setAiHistory] = useState<Array<{ role: string; text: string; linkProduct?: Product }>>([
     { role: 'model', text: 'Jambo! I am your Kenyan Curated Shopping assistant. Ask me to find "cheap phones under KES 25,000" or compare JForce logistics & Twiva bargains instantly!' }
   ]);
   const [aiLoading, setAiLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
-  
+
   // Admin Editing Modes
   const [adminPanel, setAdminPanel] = useState<'products' | 'orders' | 'blogs' | 'categories' | 'faqs' | 'banners' | 'seo' | 'notifications' | 'analytics'>('products');
   const [editingProduct, setEditingProduct] = useState<Partial<Product> | null>(null);
   const [editingBlog, setEditingBlog] = useState<Partial<Blog> | null>(null);
   const [seoViewingProduct, setSeoViewingProduct] = useState<Product | null>(null);
   const [orderDateFilter, setOrderDateFilter] = useState<'today' | 'weekly' | 'all'>('today');
-  
+
   // Partner custom redirect link builder
   const [partnerProductChoice, setPartnerProductChoice] = useState<string>('');
   const [partnerRefCode, setPartnerRefCode] = useState<string>('moses');
   const [demoResetMsg, setDemoResetMsg] = useState(false);
-  
+
   // SEO Deep Link Parsing on mount/update
   useEffect(() => {
     if (products.length > 0) {
@@ -204,7 +204,7 @@ export default function App() {
       seoKeywords = `${selectedProduct.title}, buy ${selectedProduct.title} Kenya, cheap ${selectedProduct.category}, Jumia online deals Nairobi, ${selectedProduct.specifications.join(', ')}`;
       seoImage = selectedProduct.imageUrl;
       currentUrl = `${siteBaseUrl}/?product=${selectedProduct.id}`;
-      
+
       schemaMarkup = {
         "@context": "https://schema.org",
         "@type": "Product",
@@ -269,11 +269,11 @@ export default function App() {
       };
     } else {
       // General Tab based metadata
-      switch(activeTab) {
+      switch (activeTab) {
         case 'catalog':
           seoTitle = "Official Product Discount Catalog | Cheap Smartphone Bargains Nairobi - Dealy KE";
           seoDesc = "Browse the absolute lowest prices on verified Jumia exclusive phone models and Twiva network drop catalog items in Kenya. Compare features and reviews instantly.";
-          seoKeywords = "Jumia catalog Kenya, cheap smartphones Nairobi, online reseller mall, Twiva affiliate catalog, verified discount electronics";
+          seoKeywords = "Jumia catalog Kenya, Jumia Deals, cheap smartphones Nairobi, online reseller mall, Twiva affiliate catalog, verified discount electronics, Buy Genuine Phones in Kenya, Buy Beauty Products in Kenya, Buy Fashion Products in Kenya, Buy Accessories in Kenya";
           break;
         case 'blogs':
           seoTitle = "Smart Buyer Guides & Dropshipping Tips Kenya - Dealy KE Editorial";
@@ -376,7 +376,7 @@ export default function App() {
     // Standard SEO Tags
     setMetaTag('name', 'description', seoDesc);
     setMetaTag('name', 'keywords', seoKeywords);
-    
+
     // Open Graph / Social Tags
     setMetaTag('property', 'og:title', seoTitle);
     setMetaTag('property', 'og:description', seoDesc);
@@ -439,7 +439,7 @@ export default function App() {
   useEffect(() => {
     const handleLocationChange = () => {
       const path = window.location.pathname;
-      
+
       // Admin check
       if (path === '/admin' || path.startsWith('/admin/')) {
         if (currentRole !== UserRole.ADMIN) {
@@ -449,11 +449,11 @@ export default function App() {
           setIsLoginModalOpen(false);
           setActiveTab('admin-desk');
         }
-      } 
+      }
       // Privacy Policy check
       else if (path === '/privacy-policy') {
         setActiveTab('privacy');
-      } 
+      }
       // Terms check
       else if (path === '/terms&services') {
         setActiveTab('terms');
@@ -461,12 +461,12 @@ export default function App() {
     };
 
     handleLocationChange();
-    
+
     // Also listen for popstate if user uses back/forward buttons
     window.addEventListener('popstate', handleLocationChange);
     return () => window.removeEventListener('popstate', handleLocationChange);
   }, [currentRole]);
-  
+
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -579,7 +579,7 @@ export default function App() {
       });
       fetchData(); // reload clicks Count
       showToast(`Redirecting to affiliate URL for: ${product.title}`);
-      
+
       // Open Twiva link in new Tab beautifully
       if (product.affiliateUrl) {
         window.open(product.affiliateUrl, '_blank');
@@ -617,13 +617,13 @@ export default function App() {
           referredBy: partnerRefCode || undefined
         })
       });
-      
+
       if (response.ok) {
         // Construct detailed WhatsApp message including parameters and URL
         const productUrl = `${window.location.origin}/?product=${selectedProduct.id}`;
         const skuInfo = selectedProduct.jforceSku ? `*SKU Code:* ${selectedProduct.jforceSku}\n` : '';
         const partnerInfo = partnerRefCode ? `*Referred By (Partner):* ${partnerRefCode}\n` : '';
-        
+
         const messageText = `*Dealy KE - New Order Request*\n` +
           `===========================\n\n` +
           `Greetings Dealy KE Team,\n` +
@@ -650,7 +650,7 @@ export default function App() {
         syncOrders();
         syncNotifications();
         showToast('Your order has been recorded! Opening WhatsApp to details transfer...');
-        
+
         // Open WhatsApp directly
         window.open(whatsappUrl, '_blank');
 
@@ -684,7 +684,7 @@ export default function App() {
           comment: reviewForm.comment
         })
       });
-      
+
       if (response.ok) {
         setReviewForm({ rating: 5, comment: '', name: 'Jane Wambui' });
         syncReviews();
@@ -697,9 +697,9 @@ export default function App() {
 
   // Client side search and category filters
   const filteredProducts = products.filter(p => {
-    const matchesSearch = (p.title || '').toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          (p.description || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          (p.category || '').toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = (p.title || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (p.description || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (p.category || '').toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'all' || p.category === selectedCategory;
     const matchesSource = selectedSource === 'all' || p.source === selectedSource;
     const matchesPrice = p.price <= priceMax;
@@ -719,7 +719,7 @@ export default function App() {
     setAiHistory(prev => [...prev, { role: 'user', text: userText }]);
     setAiInput('');
     setAiLoading(true);
-    
+
     try {
       const response = await fetch('/api/assistant', {
         method: 'POST',
@@ -730,7 +730,7 @@ export default function App() {
         })
       });
       const data = await response.json();
-      
+
       // Match if assistant is discussing some active product
       let linkProductObj: Product | undefined = undefined;
       const lowerReply = data.text.toLowerCase();
@@ -738,7 +738,7 @@ export default function App() {
       if (matchedProd) {
         linkProductObj = matchedProd;
       }
-      
+
       setAiHistory(prev => [...prev, { role: 'model', text: data.text, linkProduct: linkProductObj }]);
     } catch (e) {
       setAiHistory(prev => [...prev, { role: 'model', text: 'Sorry, I am having basic server lag. Re-submit your shopping query!' }]);
@@ -972,7 +972,7 @@ export default function App() {
     const matchingSignups = wishlist.length + 1;
     const matchingOrders = orders.filter(o => o.notes?.includes('Ref') || o.referredBy === partnerRefCode);
     const estCommission = (matchingOrders.length * 1200) + (matchingClicks * 15);
-    
+
     return {
       clicks: matchingClicks,
       signups: matchingSignups,
@@ -994,7 +994,7 @@ export default function App() {
       )}
 
       {/* Global curated navigation header styled under Editorial Guidelines */}
-      <Header 
+      <Header
         currentRole={currentRole}
         onRoleChange={async (role) => {
           if (role === UserRole.GUEST) {
@@ -1022,12 +1022,12 @@ export default function App() {
         }}
       />
 
-      <AuthModal 
-        isOpen={isLoginModalOpen} 
+      <AuthModal
+        isOpen={isLoginModalOpen}
         onClose={() => {
           setIsLoginModalOpen(false);
           setLoginModalAdminMode(false);
-        }} 
+        }}
         initialAdminMode={loginModalAdminMode}
         onAuthSuccess={(user, role) => {
           setUser(user);
@@ -1043,11 +1043,11 @@ export default function App() {
 
       {/* Dynamic Main Viewport area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-6 py-8">
-        
+
         {/* TAB 1: LANDING PAGE PORT */}
         {activeTab === 'landing' && (
           <div className="space-y-16">
-            
+
             {/* Elegant Asymmetric Hero Banner (Editorial Blueprint) */}
             <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-b border-[#121212]/15 pb-10">
               <div className="lg:col-span-3 space-y-6">
@@ -1059,15 +1059,15 @@ export default function App() {
                     Dealy KE Spotlight
                   </p>
                 </div>
-                
+
                 {/* Embedded quick search & Assistant call */}
                 <div className="space-y-3">
                   <p className="text-[11px] text-zinc-650 font-sans leading-normal font-medium">
                     Search curated catalog items:
                   </p>
                   <div className="relative">
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="Search phones, soundbars, fashion..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
@@ -1076,7 +1076,7 @@ export default function App() {
                     />
                     <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-zinc-450 text-zinc-400" />
                   </div>
-                  <button 
+                  <button
                     onClick={() => setActiveTab('catalog')}
                     className="w-full bg-[#121212] hover:bg-opacity-80 text-white py-2 text-xs font-mono tracking-widest uppercase transition-all select-none cursor-pointer"
                   >
@@ -1093,7 +1093,7 @@ export default function App() {
                 {(() => {
                   const activeBanner = banners.find(b => b.active);
                   if (!activeBanner) return null;
-                  
+
                   return (
                     <div className="pt-4 border-t border-[#121212]/10 space-y-2">
                       <div className="flex items-center justify-between">
@@ -1102,8 +1102,8 @@ export default function App() {
                         </span>
                         <span className="text-[8px] font-mono text-zinc-400">PARTNER CAMPAIGN</span>
                       </div>
-                      
-                      <div 
+
+                      <div
                         onClick={() => {
                           if (activeBanner.link) {
                             if (activeBanner.link.startsWith('http')) {
@@ -1119,12 +1119,12 @@ export default function App() {
                         <div className="absolute -right-4 -bottom-4 opacity-5 pointer-events-none group-hover/ad:scale-110 transition duration-500">
                           <ShoppingBag className="h-16 w-16 text-black" />
                         </div>
-                        
+
                         <div className="flex items-start gap-2.5">
                           <div className="h-10 w-10 shrink-0 bg-white border border-amber-200 overflow-hidden relative">
-                            <img 
-                              src={activeBanner.image || "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=100"} 
-                              alt={activeBanner.title} 
+                            <img
+                              src={activeBanner.image || "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=100"}
+                              alt={activeBanner.title}
                               className="w-full h-full object-cover grayscale group-hover/ad:grayscale-0 transition duration-500"
                             />
                           </div>
@@ -1138,7 +1138,7 @@ export default function App() {
                             </p>
                           </div>
                         </div>
-                        
+
                         <div className="mt-2 flex items-center justify-between text-[9px] font-mono border-t border-amber-200/50 pt-2 text-[#D9411E] font-bold">
                           <span className="uppercase tracking-tighter">CLICK TO VIEW OFFER</span>
                           <span className="bg-[#D9411E] text-white px-1 py-0.2 text-[8px] uppercase tracking-wider font-extrabold group-hover/ad:bg-[#121212] transition duration-300">
@@ -1159,11 +1159,11 @@ export default function App() {
                     <span className="text-[8px] font-mono text-[#D9411E] font-bold animate-pulse">● LIVE VERIFIED</span>
                   </div>
                   <div className="border border-[#121212]/10 bg-[#FCFBFA] p-1.5 hover:border-black transition-all">
-                    <img 
-                      src={herodealyImage} 
-                      alt="DealyKE - Your Smart Way to Shop & Save" 
+                    <img
+                      src={herodealyImage}
+                      alt="DealyKE - Your Smart Way to Shop & Save"
                       className="w-full h-auto object-cover border border-[#121212]/5"
-                      referrerPolicy="no-referrer" 
+                      referrerPolicy="no-referrer"
                     />
                   </div>
                 </div>
@@ -1213,17 +1213,16 @@ export default function App() {
                       themeBg: "text-indigo-700 bg-indigo-50 border-indigo-200/50"
                     }
                   ].map((slide, idx) => (
-                    <div 
+                    <div
                       key={idx}
-                      className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                        idx === currentSlideIndex 
-                          ? "opacity-100 scale-100 pointer-events-auto z-10" 
+                      className={`absolute inset-0 transition-all duration-700 ease-in-out ${idx === currentSlideIndex
+                          ? "opacity-100 scale-100 pointer-events-auto z-10"
                           : "opacity-0 scale-95 pointer-events-none z-0"
-                      }`}
+                        }`}
                     >
-                      <img 
-                        src={slide.image} 
-                        alt={slide.title} 
+                      <img
+                        src={slide.image}
+                        alt={slide.title}
                         className="w-full h-full object-cover transition-transform duration-[6000ms] ease-out group-hover:scale-110"
                       />
                       {/* Interactive Offer Sticker */}
@@ -1236,7 +1235,7 @@ export default function App() {
                   ))}
 
                   {/* Manual Arrow Controls */}
-                  <button 
+                  <button
                     onClick={() => setCurrentSlideIndex((prev) => (prev - 1 + 4) % 4)}
                     className="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-black p-1.5 rounded-none shadow-md border border-[#121212]/10 transition-all hover:scale-105 active:scale-95 cursor-pointer opacity-0 group-hover:opacity-100"
                     title="Previous Deal"
@@ -1244,7 +1243,7 @@ export default function App() {
                     <ChevronLeft className="h-4 w-4" />
                   </button>
 
-                  <button 
+                  <button
                     onClick={() => setCurrentSlideIndex((prev) => (prev + 1) % 4)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-black p-1.5 rounded-none shadow-md border border-[#121212]/10 transition-all hover:scale-105 active:scale-95 cursor-pointer opacity-0 group-hover:opacity-100"
                     title="Next Deal"
@@ -1258,9 +1257,8 @@ export default function App() {
                       <button
                         key={dot}
                         onClick={() => setCurrentSlideIndex(dot)}
-                        className={`h-1.5 transition-all duration-300 rounded-none cursor-pointer ${
-                          dot === currentSlideIndex ? "w-6 bg-[#D9411E]" : "w-1.5 bg-white/60 hover:bg-white"
-                        }`}
+                        className={`h-1.5 transition-all duration-300 rounded-none cursor-pointer ${dot === currentSlideIndex ? "w-6 bg-[#D9411E]" : "w-1.5 bg-white/60 hover:bg-white"
+                          }`}
                       />
                     ))}
                   </div>
@@ -1327,8 +1325,8 @@ export default function App() {
                   <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#D9411E] font-extrabold">LIMITED STOCK DEALS</p>
                   <h2 className="font-serif text-3xl font-bold mt-1 text-[#121212]">Trending Curation</h2>
                 </div>
-                <button 
-                  onClick={() => setActiveTab('catalog')} 
+                <button
+                  onClick={() => setActiveTab('catalog')}
                   className="font-mono text-[10px] font-bold uppercase tracking-widest border-b border-[#121212] pb-0.5 hover:text-[#D9411E]"
                 >
                   View All Drops
@@ -1338,26 +1336,25 @@ export default function App() {
               {/* Showcase 4 premium visual cards displaying different sources */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
                 {products.filter(p => p.featured).slice(0, 4).map((product) => (
-                  <div 
+                  <div
                     key={product.id}
                     className="group flex flex-col border border-[#121212]/10 bg-white self-stretch tracking-tight relative cursor-pointer overflow-hidden"
                     onClick={() => setSelectedProduct(product)}
                   >
                     {/* Upper badge matching source network */}
                     <div className="absolute top-3 left-3 z-10">
-                      <span className={`text-[8px] font-mono tracking-widest font-extrabold uppercase px-2 py-1 shadow-sm border ${
-                        product.source === ProductSource.JFORCE 
-                          ? 'bg-white text-zinc-900 border-zinc-900' 
+                      <span className={`text-[8px] font-mono tracking-widest font-extrabold uppercase px-2 py-1 shadow-sm border ${product.source === ProductSource.JFORCE
+                          ? 'bg-white text-zinc-900 border-zinc-900'
                           : 'bg-[#D9411E] text-white border-[#D9411E]'
-                      }`}>
+                        }`}>
                         {product.source === ProductSource.JFORCE ? 'JUMIA EXCLUSIVE' : 'TWIVA AFFILIATE'}
                       </span>
                     </div>
 
                     <div className="aspect-[4/5] bg-zinc-100 overflow-hidden relative mb-3">
-                      <img 
-                        src={product.imageUrl} 
-                        alt={product.title} 
+                      <img
+                        src={product.imageUrl}
+                        alt={product.title}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                       />
                     </div>
@@ -1384,7 +1381,7 @@ export default function App() {
                           </div>
 
                           {product.source === ProductSource.JFORCE ? (
-                            <button 
+                            <button
                               onClick={(e) => {
                                 e.stopPropagation();
                                 setSelectedProduct(product);
@@ -1395,7 +1392,7 @@ export default function App() {
                               Request Order
                             </button>
                           ) : (
-                            <button 
+                            <button
                               onClick={(e) => {
                                 e.stopPropagation();
                                 trackClick(product);
@@ -1479,12 +1476,12 @@ export default function App() {
               <p className="text-xs text-zinc-350 max-w-md mx-auto">
                 No telemetry tracking. Direct buying guides comparison alerts and Nairobi catalog updates twice a week straight to your inbox.
               </p>
-              
+
               {!newsletterSubscribed ? (
                 <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto pt-2">
-                  <input 
-                    type="email" 
-                    placeholder="Provide your email dress..." 
+                  <input
+                    type="email"
+                    placeholder="Provide your email dress..."
                     value={newsletterEmail}
                     onChange={(e) => setNewsletterEmail(e.target.value)}
                     required
@@ -1509,7 +1506,7 @@ export default function App() {
                     <h3 className="font-serif text-xl font-bold">Sponsored Ad Campaigns</h3>
                     <p className="text-xs text-zinc-500 mt-1">Manage the sponsored ad cards displayed across the platform sidebars and deal drops.</p>
                   </div>
-                  <button 
+                  <button
                     onClick={() => setEditingBanner({
                       image: '',
                       title: '',
@@ -1537,47 +1534,47 @@ export default function App() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label className="font-bold">Campaign Title</label>
-                        <input 
-                          type="text" 
-                          value={editingBanner.title || ''} 
-                          onChange={(e) => setEditingBanner({...editingBanner, title: e.target.value})}
+                        <input
+                          type="text"
+                          value={editingBanner.title || ''}
+                          onChange={(e) => setEditingBanner({ ...editingBanner, title: e.target.value })}
                           required
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                         />
                       </div>
                       <div className="space-y-2">
                         <label className="font-bold">Subtitle / Call to Action</label>
-                        <input 
-                          type="text" 
-                          value={editingBanner.subtitle || ''} 
-                          onChange={(e) => setEditingBanner({...editingBanner, subtitle: e.target.value})}
+                        <input
+                          type="text"
+                          value={editingBanner.subtitle || ''}
+                          onChange={(e) => setEditingBanner({ ...editingBanner, subtitle: e.target.value })}
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                         />
                       </div>
                       <div className="space-y-2">
                         <label className="font-bold">Image URL</label>
-                        <input 
-                          type="text" 
-                          value={editingBanner.image || ''} 
-                          onChange={(e) => setEditingBanner({...editingBanner, image: e.target.value})}
+                        <input
+                          type="text"
+                          value={editingBanner.image || ''}
+                          onChange={(e) => setEditingBanner({ ...editingBanner, image: e.target.value })}
                           required
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                         />
                       </div>
                       <div className="space-y-2">
                         <label className="font-bold">Target Link (Internal or External)</label>
-                        <input 
-                          type="text" 
-                          value={editingBanner.link || ''} 
-                          onChange={(e) => setEditingBanner({...editingBanner, link: e.target.value})}
+                        <input
+                          type="text"
+                          value={editingBanner.link || ''}
+                          onChange={(e) => setEditingBanner({ ...editingBanner, link: e.target.value })}
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                         />
                       </div>
                       <div className="flex items-center gap-2 pt-2">
-                        <input 
-                          type="checkbox" 
-                          checked={editingBanner.active} 
-                          onChange={(e) => setEditingBanner({...editingBanner, active: e.target.checked})}
+                        <input
+                          type="checkbox"
+                          checked={editingBanner.active}
+                          onChange={(e) => setEditingBanner({ ...editingBanner, active: e.target.checked })}
                           className="accent-[#D9411E]"
                         />
                         <label className="font-bold">Active & Visible</label>
@@ -1628,15 +1625,15 @@ export default function App() {
         {/* TAB 2: PRODUCT CATALOG CURATION SCREEN */}
         {activeTab === 'catalog' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
+
             {/* Sidebar Curation Filters */}
             <aside className="lg:col-span-3 space-y-6 pb-6 border-b lg:border-b-0 lg:border-r border-[#121212]/15 lg:pr-8">
-              
+
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#111] flex items-center gap-1.5">
                   <SlidersHorizontal className="h-4 w-4 text-[#D9411E]" /> Filter Desk
                 </span>
-                <button 
+                <button
                   onClick={() => {
                     setSearchTerm('');
                     setSelectedCategory('all');
@@ -1660,7 +1657,7 @@ export default function App() {
                     { label: 'Twiva Affiliate', value: ProductSource.TWIVA }
                   ].map(source => (
                     <label key={source.value} className="flex items-center gap-2 cursor-pointer text-xs">
-                      <input 
+                      <input
                         type="radio"
                         name="sourceFilter"
                         checked={selectedSource === source.value}
@@ -1694,7 +1691,7 @@ export default function App() {
                   <h4 className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold">Max price KES</h4>
                   <span className="text-xs font-mono font-bold text-[#D9411E]">KES {priceMax.toLocaleString()}</span>
                 </div>
-                <input 
+                <input
                   type="range"
                   min="2000"
                   max="100000"
@@ -1722,12 +1719,12 @@ export default function App() {
 
             {/* Display Products list output */}
             <section className="lg:col-span-9 space-y-6">
-              
+
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-start sm:items-center bg-[#F2F0ED]/50 p-3 border border-[#121212]/10">
-                
+
                 {/* Search Term input */}
                 <div className="relative w-full sm:max-w-xs">
-                  <input 
+                  <input
                     type="text"
                     placeholder="Search titles, specs, brands..."
                     value={searchTerm}
@@ -1763,7 +1760,7 @@ export default function App() {
                   <HelpCircle className="h-10 w-10 mx-auto text-zinc-300" />
                   <h3 className="font-serif font-bold text-xl text-[#333]">No matched deal curations found.</h3>
                   <p className="text-xs text-zinc-500 max-w-sm mx-auto">None of our current Xiaomi, Tecno, Oraimo or beauty catalog rows fit these parameters. Toggle your filters to restore display.</p>
-                  <button 
+                  <button
                     onClick={() => {
                       setSearchTerm('');
                       setSelectedCategory('all');
@@ -1778,20 +1775,19 @@ export default function App() {
               ) : (
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                   {filteredProducts.map((p) => (
-                    <div 
+                    <div
                       key={p.id}
                       className="group flex flex-col border border-[#121212]/10 bg-white transition hover:border-[#121212] relative self-stretch cursor-pointer ease-out overflow-hidden"
                       onClick={() => setSelectedProduct(p)}
                     >
                       <div className="absolute top-3 left-3 z-10 flex gap-1 items-center">
-                        <span className={`text-[8px] font-mono tracking-wider font-extrabold uppercase px-2 py-1 shadow-sm border ${
-                          p.source === ProductSource.JFORCE 
-                            ? 'bg-white text-[#111] border-zinc-900' 
+                        <span className={`text-[8px] font-mono tracking-wider font-extrabold uppercase px-2 py-1 shadow-sm border ${p.source === ProductSource.JFORCE
+                            ? 'bg-white text-[#111] border-zinc-900'
                             : 'bg-[#D9411E] text-white border-[#D9411E]'
-                        }`}>
+                          }`}>
                           {p.source === ProductSource.JFORCE ? 'JUMIA' : 'TWIVA'}
                         </span>
-                        
+
                         {wishlist.includes(p.id) && (
                           <span className="bg-orange-100 text-[#D9411E] border border-orange-300 rounded-none px-1.5 py-0.5 text-[8px] font-bold">
                             ★ SAVED
@@ -1800,9 +1796,9 @@ export default function App() {
                       </div>
 
                       <div className="aspect-[3/4] overflow-hidden bg-zinc-150 relative mb-3 transition-all duration-300">
-                        <img 
-                          src={p.imageUrl} 
-                          alt={p.title} 
+                        <img
+                          src={p.imageUrl}
+                          alt={p.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
@@ -1830,7 +1826,7 @@ export default function App() {
                             </div>
 
                             {p.source === ProductSource.JFORCE ? (
-                              <button 
+                              <button
                                 onClick={(e) => {
                                   e.stopPropagation();
                                   setSelectedProduct(p);
@@ -1841,11 +1837,11 @@ export default function App() {
                                 Order Drop
                               </button>
                             ) : (
-                              <button 
+                              <button
                                 onClick={(e) => {
-                                e.stopPropagation();
-                                trackClick(p);
-                              }}
+                                  e.stopPropagation();
+                                  trackClick(p);
+                                }}
                                 className="bg-[#111] hover:bg-opacity-80 text-white transition px-2 sm:px-3 py-1.5 text-[8px] sm:text-[9px] font-mono tracking-wider font-bold uppercase border border-black whitespace-nowrap cursor-pointer flex-1 sm:flex-none text-center"
                               >
                                 Checkout
@@ -1868,7 +1864,7 @@ export default function App() {
         {/* TAB 3: GUIDES (BLOGS) PAGE */}
         {activeTab === 'blogs' && (
           <div className="space-y-10">
-            
+
             {/* Standard editorial banner guide grid */}
             {!activeBlog ? (
               <div className="space-y-12">
@@ -1876,15 +1872,15 @@ export default function App() {
                   <span className="text-[10px] font-mono tracking-widest text-[#D9411E] font-bold uppercase">EDITORIAL OPINIONS</span>
                   <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">Dealy KE Buying Guides</h1>
                   <p className="text-xs text-zinc-500 leading-relaxed">
-                    Compare technical details of cheap devices under Nairobi commuter conditions, and evaluate Jumia reseller markdowns transparently. 
+                    Compare technical details of cheap devices under Nairobi commuter conditions, and evaluate Jumia reseller markdowns transparently.
                   </p>
                 </div>
 
                 {/* Grid List */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {blogs.map((blog) => (
-                    <article 
-                      key={blog.id} 
+                    <article
+                      key={blog.id}
                       className="border border-[#121212]/10 bg-white p-6 flex flex-col md:flex-row gap-6 hover:border-[#121212] transition cursor-pointer"
                       onClick={() => setActiveBlog(blog)}
                     >
@@ -1914,11 +1910,11 @@ export default function App() {
                 </div>
               </div>
             ) : (
-              
+
               /* Single Blog View screen */
               <div className="max-w-3xl mx-auto space-y-6">
-                
-                <button 
+
+                <button
                   onClick={() => setActiveBlog(null)}
                   className="font-mono text-xs uppercase tracking-widest text-zinc-500 hover:text-black flex items-center gap-1"
                 >
@@ -1947,16 +1943,16 @@ export default function App() {
                 </div>
 
                 {/* Body details */}
-                <div 
-                  className="prose max-w-none text-[#121212]/80 leading-relaxed text-sm md:text-base space-y-4 font-sans pt-3" 
-                  dangerouslySetInnerHTML={{ __html: activeBlog.content }} 
+                <div
+                  className="prose max-w-none text-[#121212]/80 leading-relaxed text-sm md:text-base space-y-4 font-sans pt-3"
+                  dangerouslySetInnerHTML={{ __html: activeBlog.content }}
                 />
 
                 {/* Bottom related action */}
                 <div className="p-6 bg-[#F2F0ED] border border-zinc-350 space-y-3 text-center">
                   <h4 className="font-serif text-lg font-bold italic text-zinc-800">Need specific budget comparisons?</h4>
                   <p className="text-xs text-zinc-500 max-w-sm mx-auto">Ask our intelligent shopping AI to compare models discussed in this guide in real-time pricing formats.</p>
-                  <button 
+                  <button
                     onClick={() => setAiOpen(true)}
                     className="bg-[#121212] font-mono uppercase text-xs text-white px-6 py-2 tracking-widest"
                   >
@@ -1966,21 +1962,21 @@ export default function App() {
 
               </div>
             )}
-            
+
           </div>
         )}
 
         {/* TAB 4: MY DESK / CUSTOMER WORKSPACE SCREEN */}
         {activeTab === 'customer-desk' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
+
             {/* Right side customer status tracker */}
             <div className="lg:col-span-8 space-y-8">
-              
+
               <div className="border border-[#121212]/10 p-6 bg-white shrink">
                 <span className="font-mono text-[10px] tracking-widest font-extrabold text-[#D9411E] uppercase">TRANSACTION PROGRESS</span>
                 <h2 className="font-serif text-2xl font-bold mb-4 mt-1">My Resale Order Requests</h2>
-                
+
                 {orders.length === 0 ? (
                   <div className="p-12 text-center border border-dashed border-zinc-200">
                     <p className="text-xs text-zinc-500 mb-3">You have not submitted direct JForce courier logistics order forms yet.</p>
@@ -1996,7 +1992,7 @@ export default function App() {
                           <span className="font-bold text-[#D9411E]">ORDER ID: {order.id}</span>
                           <span className="text-zinc-500">Date: {new Date(order.createdAt).toLocaleString()}</span>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
                             <p className="text-[#111] font-bold font-serif italic text-sm">{order.productTitle}</p>
@@ -2014,13 +2010,12 @@ export default function App() {
                         <div className="mt-4 pt-3 border-t border-zinc-100 flex justify-between items-center bg-zinc-50 p-2 text-[9px] tracking-wide font-mono">
                           <span>Status Flow:</span>
                           <div className="flex items-center gap-1">
-                            <span className={`px-2 py-0.5 uppercase font-bold ${
-                              order.status === OrderStatus.DELIVERED 
-                                ? 'bg-green-100 text-green-700' 
+                            <span className={`px-2 py-0.5 uppercase font-bold ${order.status === OrderStatus.DELIVERED
+                                ? 'bg-green-100 text-green-700'
                                 : order.status === OrderStatus.CANCELLED
-                                ? 'bg-rose-100 text-rose-700'
-                                : 'bg-amber-150 text-amber-800 bg-amber-50'
-                            }`}>
+                                  ? 'bg-rose-100 text-rose-700'
+                                  : 'bg-amber-150 text-amber-800 bg-amber-50'
+                              }`}>
                               ● {order.status}
                             </span>
                           </div>
@@ -2035,7 +2030,7 @@ export default function App() {
               {/* Wishlist curation panel */}
               <div className="border border-[#121212]/10 p-6 bg-white">
                 <h3 className="font-serif text-2xl font-bold mb-3">Saved Wishlist Drops ({wishlist.length})</h3>
-                
+
                 {wishlist.length === 0 ? (
                   <p className="text-xs text-zinc-500 font-mono">Wishlist space empty. Save items from the catalog gallery to view them here.</p>
                 ) : (
@@ -2047,7 +2042,7 @@ export default function App() {
                           <h4 className="text-xs font-serif font-bold truncate">{p.title}</h4>
                           <span className="text-[10px] font-mono text-zinc-500">KES {p.price.toLocaleString()}</span>
                         </div>
-                        <button 
+                        <button
                           onClick={() => toggleWishlist(p.id)}
                           className="text-zinc-400 hover:text-rose-600 p-1"
                           title="Remove from Saved List"
@@ -2064,7 +2059,7 @@ export default function App() {
 
             {/* Left side referral system promotion block */}
             <div className="lg:col-span-4 space-y-6">
-              
+
             </div>
 
           </div>
@@ -2073,7 +2068,7 @@ export default function App() {
         {/* TAB 5: PARTNER WORKSPACE SCREEN */}
         {activeTab === 'partner-desk' && (
           <div className="space-y-8">
-            
+
             {/* Upper Metric Row */}
             <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
@@ -2092,7 +2087,7 @@ export default function App() {
 
             {/* Custom SVG line Chart showing Clicks timeline visually */}
             <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              
+
               <div className="lg:col-span-8 border border-[#121212]/10 bg-white p-6">
                 <div className="flex justify-between items-baseline mb-4">
                   <div>
@@ -2104,7 +2099,7 @@ export default function App() {
 
                 {/* Simulated visual plot */}
                 <div className="aspect-[21/9] w-full bg-[#FCFBFA] border border-zinc-200 flex flex-col justify-end p-4 relative font-mono text-[9px]">
-                  
+
                   {/* Grid Lines */}
                   <div className="absolute inset-x-0 top-1/4 border-t border-zinc-100"></div>
                   <div className="absolute inset-x-0 top-2/4 border-t border-zinc-100"></div>
@@ -2123,7 +2118,7 @@ export default function App() {
                       points="0,45 15,38 30,12 45,30 60,8 75,22 90,5 100,15 100,50 0,50"
                     />
                   </svg>
-                  
+
                   {/* Axis values labels */}
                   <div className="flex justify-between text-zinc-500 font-bold uppercase tracking-widest border-t border-zinc-200 pt-2 z-10">
                     <span>Mon</span>
@@ -2162,9 +2157,9 @@ export default function App() {
 
                   <div>
                     <label className="font-bold block uppercase text-[10px] mb-1">Affiliate custom code</label>
-                    <input 
-                      type="text" 
-                      value={partnerRefCode} 
+                    <input
+                      type="text"
+                      value={partnerRefCode}
                       onChange={(e) => setPartnerRefCode(e.target.value.toLowerCase())}
                       className="w-full bg-white border border-zinc-300 p-2"
                     />
@@ -2174,11 +2169,11 @@ export default function App() {
                     <div className="space-y-2 pt-2 border-t border-zinc-350">
                       <span className="text-[9px] font-bold text-slate-500 block">LINK REDIRECTION SPECIFICATION:</span>
                       <div className="bg-white p-2 border border-zinc-400 text-[10px] select-all break-all break-words">
-                        https://dealy.co.ke/?ref={partnerRefCode}&product={partnerProductChoice}
+                        https://www.dealykenya.shop/?ref={partnerRefCode}&product={partnerProductChoice}
                       </div>
-                      <button 
+                      <button
                         onClick={() => {
-                          navigator.clipboard.writeText(`https://dealy.co.ke/?ref=${partnerRefCode}&product=${partnerProductChoice}`);
+                          navigator.clipboard.writeText(`https://www.dealykenya.shop/?ref=${partnerRefCode}&product=${partnerProductChoice}`);
                           showToast('Commission product-link configured and copied!');
                         }}
                         className="w-full bg-black text-white text-[10px] tracking-wide uppercase py-2 font-bold hover:bg-opacity-80 transition"
@@ -2199,7 +2194,7 @@ export default function App() {
         {/* TAB 6: ADMIN CMS AND CONTROLS */}
         {activeTab === 'admin-desk' && (
           <div className="space-y-8">
-            
+
             {/* Secondary Header switcher within CMS */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-start sm:items-center border-b border-[#121212]/15 pb-4">
               <div>
@@ -2281,15 +2276,15 @@ export default function App() {
             <div className="flex flex-col sm:flex-row gap-2 justify-between items-center bg-[#F2F0ED] p-4 text-xs font-mono">
               <span className="text-[#D9411E] font-bold uppercase">Simulation tools:</span>
               <div className="flex flex-wrap gap-2">
-                <button 
+                <button
                   onClick={triggerDemoImport}
                   className="bg-zinc-800 hover:bg-black text-white px-3 py-1.5 tracking-wider uppercase font-semibold transition"
                 >
                   Reset database to seed values
                 </button>
-                <a 
-                  href="/api/database/prisma-schema" 
-                  target="_blank" 
+                <a
+                  href="/api/database/prisma-schema"
+                  target="_blank"
                   className="bg-white border border-zinc-300 hover:border-black text-[11px] font-bold px-3 py-1.5 tracking-wider uppercase inline-flex items-center gap-1.5"
                 >
                   <FileJson className="h-3.5 w-3.5 text-zinc-500" /> Export Prisma Schema
@@ -2302,7 +2297,7 @@ export default function App() {
               <div className="space-y-6">
                 <div className="flex justify-between items-center">
                   <h3 className="font-serif text-xl font-bold">Manage Curated Catalog Rows</h3>
-                  <button 
+                  <button
                     onClick={() => setEditingProduct({
                       title: '',
                       description: '',
@@ -2336,10 +2331,10 @@ export default function App() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label className="font-bold">Title Name</label>
-                        <input 
-                          type="text" 
-                          value={editingProduct.title || ''} 
-                          onChange={(e) => setEditingProduct({...editingProduct, title: e.target.value})}
+                        <input
+                          type="text"
+                          value={editingProduct.title || ''}
+                          onChange={(e) => setEditingProduct({ ...editingProduct, title: e.target.value })}
                           required
                           className="w-full bg-[#FCFBFA] border p-2"
                           placeholder="e.g. Samsung Galaxy S24 Ultra"
@@ -2347,10 +2342,10 @@ export default function App() {
                       </div>
                       <div className="space-y-2">
                         <label className="font-bold">Est price KES</label>
-                        <input 
-                          type="number" 
-                          value={editingProduct.price || ''} 
-                          onChange={(e) => setEditingProduct({...editingProduct, price: Number(e.target.value)})}
+                        <input
+                          type="number"
+                          value={editingProduct.price || ''}
+                          onChange={(e) => setEditingProduct({ ...editingProduct, price: Number(e.target.value) })}
                           required
                           className="w-full bg-[#FCFBFA] border p-2"
                           placeholder="25000"
@@ -2358,10 +2353,10 @@ export default function App() {
                       </div>
                       <div className="space-y-2">
                         <label className="font-bold">Original price KES</label>
-                        <input 
-                          type="number" 
-                          value={editingProduct.originalPrice || ''} 
-                          onChange={(e) => setEditingProduct({...editingProduct, originalPrice: Number(e.target.value)})}
+                        <input
+                          type="number"
+                          value={editingProduct.originalPrice || ''}
+                          onChange={(e) => setEditingProduct({ ...editingProduct, originalPrice: Number(e.target.value) })}
                           className="w-full bg-[#FCFBFA] border p-2"
                           placeholder="30000"
                         />
@@ -2370,7 +2365,7 @@ export default function App() {
                         <label className="font-bold">Supply source</label>
                         <select
                           value={editingProduct.source || ProductSource.JFORCE}
-                          onChange={(e) => setEditingProduct({...editingProduct, source: e.target.value as ProductSource})}
+                          onChange={(e) => setEditingProduct({ ...editingProduct, source: e.target.value as ProductSource })}
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                         >
                           <option value={ProductSource.JFORCE}>JFORCE RESELL MANUAL</option>
@@ -2379,11 +2374,11 @@ export default function App() {
                       </div>
                       <div className="space-y-2">
                         <label className="font-bold">Main Image URL</label>
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           placeholder="Primary display image..."
-                          value={editingProduct.imageUrl || ''} 
-                          onChange={(e) => setEditingProduct({...editingProduct, imageUrl: e.target.value})}
+                          value={editingProduct.imageUrl || ''}
+                          onChange={(e) => setEditingProduct({ ...editingProduct, imageUrl: e.target.value })}
                           className="w-full bg-[#FCFBFA] border p-2"
                         />
                       </div>
@@ -2392,22 +2387,22 @@ export default function App() {
                         <div className="grid grid-cols-1 gap-2">
                           {(editingProduct.imageGallery || []).map((url, idx) => (
                             <div key={idx} className="flex gap-2">
-                              <input 
+                              <input
                                 type="text"
                                 value={url}
                                 onChange={(e) => {
                                   const newGallery = [...(editingProduct.imageGallery || [])];
                                   newGallery[idx] = e.target.value;
-                                  setEditingProduct({...editingProduct, imageGallery: newGallery});
+                                  setEditingProduct({ ...editingProduct, imageGallery: newGallery });
                                 }}
                                 className="flex-1 bg-[#FCFBFA] border p-1.5 text-[11px]"
                                 placeholder="https://..."
                               />
-                              <button 
+                              <button
                                 type="button"
                                 onClick={() => {
                                   const newGallery = (editingProduct.imageGallery || []).filter((_, i) => i !== idx);
-                                  setEditingProduct({...editingProduct, imageGallery: newGallery});
+                                  setEditingProduct({ ...editingProduct, imageGallery: newGallery });
                                 }}
                                 className="text-red-500 hover:text-red-700 p-1"
                               >
@@ -2415,11 +2410,11 @@ export default function App() {
                               </button>
                             </div>
                           ))}
-                          <button 
+                          <button
                             type="button"
                             onClick={() => {
                               const newGallery = [...(editingProduct.imageGallery || []), ''];
-                              setEditingProduct({...editingProduct, imageGallery: newGallery});
+                              setEditingProduct({ ...editingProduct, imageGallery: newGallery });
                             }}
                             className="text-[10px] font-bold text-[#D9411E] hover:underline text-left"
                           >
@@ -2431,7 +2426,7 @@ export default function App() {
                         <label className="font-bold">Category Level slug</label>
                         <select
                           value={editingProduct.category || 'phones'}
-                          onChange={(e) => setEditingProduct({...editingProduct, category: e.target.value})}
+                          onChange={(e) => setEditingProduct({ ...editingProduct, category: e.target.value })}
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                         >
                           {categories.map(c => (
@@ -2442,22 +2437,22 @@ export default function App() {
                       {editingProduct.source === ProductSource.JFORCE ? (
                         <div className="space-y-2">
                           <label className="font-bold">JForce Sku tracker</label>
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             placeholder="JUMIA-RN13-M2-KE"
-                            value={editingProduct.jforceSku || ''} 
-                            onChange={(e) => setEditingProduct({...editingProduct, jforceSku: e.target.value})}
+                            value={editingProduct.jforceSku || ''}
+                            onChange={(e) => setEditingProduct({ ...editingProduct, jforceSku: e.target.value })}
                             className="w-full bg-[#FCFBFA] border p-2"
                           />
                         </div>
                       ) : (
                         <div className="space-y-2">
                           <label className="font-bold">Twiva affiliate deep link</label>
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             placeholder="https://jumia.co.ke/..."
-                            value={editingProduct.affiliateUrl || ''} 
-                            onChange={(e) => setEditingProduct({...editingProduct, affiliateUrl: e.target.value})}
+                            value={editingProduct.affiliateUrl || ''}
+                            onChange={(e) => setEditingProduct({ ...editingProduct, affiliateUrl: e.target.value })}
                             className="w-full bg-[#FCFBFA] border p-2"
                           />
                         </div>
@@ -2470,10 +2465,10 @@ export default function App() {
                           <label className="font-bold block mb-2">Product Story & Detailed Description</label>
                         </div>
                         <div className="mb-12">
-                          <ReactQuill 
+                          <ReactQuill
                             theme="snow"
-                            value={editingProduct.description || ''} 
-                            onChange={(val) => setEditingProduct({...editingProduct, description: val})}
+                            value={editingProduct.description || ''}
+                            onChange={(val) => setEditingProduct({ ...editingProduct, description: val })}
                             className="w-full bg-[#FCFBFA]"
                             placeholder="Write the detailed product story here..."
                           />
@@ -2485,22 +2480,22 @@ export default function App() {
                         <div className="grid grid-cols-1 gap-2">
                           {(editingProduct.specifications || []).map((spec, idx) => (
                             <div key={idx} className="flex gap-2">
-                              <input 
+                              <input
                                 type="text"
                                 value={spec}
                                 onChange={(e) => {
                                   const newSpecs = [...(editingProduct.specifications || [])];
                                   newSpecs[idx] = e.target.value;
-                                  setEditingProduct({...editingProduct, specifications: newSpecs});
+                                  setEditingProduct({ ...editingProduct, specifications: newSpecs });
                                 }}
                                 className="flex-1 bg-[#FCFBFA] border p-1.5 text-[11px]"
                                 placeholder="E.g. RAM: 8GB"
                               />
-                              <button 
+                              <button
                                 type="button"
                                 onClick={() => {
                                   const newSpecs = (editingProduct.specifications || []).filter((_, i) => i !== idx);
-                                  setEditingProduct({...editingProduct, specifications: newSpecs});
+                                  setEditingProduct({ ...editingProduct, specifications: newSpecs });
                                 }}
                                 className="text-red-500 hover:text-red-700 p-1"
                               >
@@ -2508,11 +2503,11 @@ export default function App() {
                               </button>
                             </div>
                           ))}
-                          <button 
+                          <button
                             type="button"
                             onClick={() => {
                               const newSpecs = [...(editingProduct.specifications || []), ''];
-                              setEditingProduct({...editingProduct, specifications: newSpecs});
+                              setEditingProduct({ ...editingProduct, specifications: newSpecs });
                             }}
                             className="text-[10px] font-bold text-blue-600 hover:underline text-left"
                           >
@@ -2580,8 +2575,8 @@ export default function App() {
                 const now = new Date();
                 if (orderDateFilter === 'today') {
                   return d.getFullYear() === now.getFullYear() &&
-                         d.getMonth() === now.getMonth() &&
-                         d.getDate() === now.getDate();
+                    d.getMonth() === now.getMonth() &&
+                    d.getDate() === now.getDate();
                 }
                 if (orderDateFilter === 'weekly') {
                   const diffTime = Math.abs(now.getTime() - d.getTime());
@@ -2697,7 +2692,7 @@ export default function App() {
               <div className="space-y-6">
                 <div className="flex justify-between items-center">
                   <h3 className="font-serif text-xl font-bold">Spawning Comparison Articles</h3>
-                  <button 
+                  <button
                     onClick={() => setEditingBlog({
                       title: '',
                       summary: '',
@@ -2718,10 +2713,10 @@ export default function App() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label className="font-bold">Article Title</label>
-                        <input 
-                          type="text" 
-                          value={editingBlog.title || ''} 
-                          onChange={(e) => setEditingBlog({...editingBlog, title: e.target.value})}
+                        <input
+                          type="text"
+                          value={editingBlog.title || ''}
+                          onChange={(e) => setEditingBlog({ ...editingBlog, title: e.target.value })}
                           required
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                           placeholder="Headline for the buying guide..."
@@ -2729,10 +2724,10 @@ export default function App() {
                       </div>
                       <div className="space-y-2">
                         <label className="font-bold">Guide Snippet Summary</label>
-                        <input 
-                          type="text" 
-                          value={editingBlog.summary || ''} 
-                          onChange={(e) => setEditingBlog({...editingBlog, summary: e.target.value})}
+                        <input
+                          type="text"
+                          value={editingBlog.summary || ''}
+                          onChange={(e) => setEditingBlog({ ...editingBlog, summary: e.target.value })}
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                           placeholder="Brief overview for the card display..."
                         />
@@ -2741,10 +2736,10 @@ export default function App() {
 
                     <div className="space-y-2 mb-10">
                       <label className="font-bold block mb-2">Content Text Body</label>
-                      <ReactQuill 
+                      <ReactQuill
                         theme="snow"
-                        value={editingBlog.content || ''} 
-                        onChange={(val) => setEditingBlog({...editingBlog, content: val})}
+                        value={editingBlog.content || ''}
+                        onChange={(val) => setEditingBlog({ ...editingBlog, content: val })}
                         className="w-full bg-[#FCFBFA]"
                         placeholder="Detailed article content..."
                       />
@@ -2765,7 +2760,7 @@ export default function App() {
                         <div className="font-bold font-serif text-sm">{b.title}</div>
                         <span className="text-[10px] text-zinc-400">Tags: {b.tags.join(', ')} | Published: {new Date(b.createdAt).toLocaleDateString()}</span>
                       </div>
-                      <button 
+                      <button
                         onClick={() => {
                           setActiveBlog(b);
                           setActiveTab('blogs');
@@ -2792,7 +2787,7 @@ export default function App() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-                  
+
                   {/* Row catalog list for SEO target selection */}
                   <div className="md:col-span-4 space-y-2">
                     <span className="font-mono text-[9px] text-[#D9411E] font-bold block uppercase">TARGET SELECTION</span>
@@ -2812,11 +2807,11 @@ export default function App() {
                   {/* Schema layout block output preview */}
                   <div className="md:col-span-8 space-y-4">
                     <span className="font-mono text-[9px] text-zinc-450 uppercase tracking-widest block font-bold">RENDERED JSON-LD METADATA PREVIEW</span>
-                    
+
                     {seoViewingProduct ? (
                       <div className="space-y-4">
                         <div className="bg-zinc-950 text-emerald-400 p-4 rounded-none font-mono text-[10px] select-all overflow-x-auto whitespace-pre leading-relaxed border border-zinc-700">
-{`{
+                          {`{
   "@context": "https://schema.org/",
   "@type": "Product",
   "name": "${seoViewingProduct.title}",
@@ -2894,13 +2889,12 @@ export default function App() {
                 ) : (
                   <div className="space-y-4">
                     {notifications.map((notif) => (
-                      <div 
+                      <div
                         key={notif.id}
-                        className={`border p-4 transition duration-300 font-mono text-xs flex flex-col md:flex-row gap-4 justify-between items-start md:items-center ${
-                          notif.isRead 
-                            ? 'bg-zinc-50/50 border-zinc-200 text-zinc-500' 
+                        className={`border p-4 transition duration-300 font-mono text-xs flex flex-col md:flex-row gap-4 justify-between items-start md:items-center ${notif.isRead
+                            ? 'bg-zinc-50/50 border-zinc-200 text-zinc-500'
                             : 'bg-white border-[#D9411E]/40 shadow-sm text-zinc-800'
-                        }`}
+                          }`}
                       >
                         <div className="space-y-1 flex-1">
                           <div className="flex items-center gap-2">
@@ -2940,7 +2934,7 @@ export default function App() {
                     <h3 className="font-serif text-xl font-bold">Catalog Category Parameters</h3>
                     <p className="text-xs text-zinc-500 mt-1">Configure active product categories, slugs, and visual icons mapped across the Dealy KE discovery catalog.</p>
                   </div>
-                  <button 
+                  <button
                     onClick={() => setEditingCategory({
                       name: '',
                       icon: 'Layers',
@@ -2966,22 +2960,22 @@ export default function App() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label className="font-bold">Category Name</label>
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           placeholder="e.g. Smart Watches"
-                          value={editingCategory.name || ''} 
-                          onChange={(e) => setEditingCategory({...editingCategory, name: e.target.value})}
+                          value={editingCategory.name || ''}
+                          onChange={(e) => setEditingCategory({ ...editingCategory, name: e.target.value })}
                           required
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                         />
                       </div>
                       <div className="space-y-2">
                         <label className="font-bold">Lucide Icon key</label>
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           placeholder="e.g. ActivityName, SparklesName"
-                          value={editingCategory.icon || ''} 
-                          onChange={(e) => setEditingCategory({...editingCategory, icon: e.target.value})}
+                          value={editingCategory.icon || ''}
+                          onChange={(e) => setEditingCategory({ ...editingCategory, icon: e.target.value })}
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                         />
                       </div>
@@ -2989,11 +2983,11 @@ export default function App() {
 
                     <div className="space-y-2">
                       <label className="font-bold block">Optional Description</label>
-                      <textarea 
+                      <textarea
                         rows={2}
                         placeholder="Highlight details of items inside this category shelf..."
-                        value={editingCategory.description || ''} 
-                        onChange={(e) => setEditingCategory({...editingCategory, description: e.target.value})}
+                        value={editingCategory.description || ''}
+                        onChange={(e) => setEditingCategory({ ...editingCategory, description: e.target.value })}
                         className="w-full bg-[#FCFBFA] border p-2 text-xs"
                       />
                     </div>
@@ -3034,7 +3028,7 @@ export default function App() {
                     <h3 className="font-serif text-xl font-bold">Help & FAQ Parameters</h3>
                     <p className="text-xs text-zinc-500 mt-1">Update global help files or answer client logistical queries regarding manual JForce commissions and Twiva redirection mechanisms.</p>
                   </div>
-                  <button 
+                  <button
                     onClick={() => setEditingFAQ({
                       question: '',
                       answer: '',
@@ -3059,11 +3053,11 @@ export default function App() {
 
                     <div className="space-y-2">
                       <label className="font-bold block">Question Heading</label>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         placeholder="e.g. How does commission distribution function?"
-                        value={editingFAQ.question || ''} 
-                        onChange={(e) => setEditingFAQ({...editingFAQ, question: e.target.value})}
+                        value={editingFAQ.question || ''}
+                        onChange={(e) => setEditingFAQ({ ...editingFAQ, question: e.target.value })}
                         required
                         className="w-full bg-[#FCFBFA] border p-2 text-xs"
                       />
@@ -3071,22 +3065,22 @@ export default function App() {
 
                     <div className="space-y-2">
                       <label className="font-bold block">Answer Text Body</label>
-                      <textarea 
+                      <textarea
                         rows={3}
                         placeholder="Write dynamic explanatory details here..."
-                        value={editingFAQ.answer || ''} 
-                        onChange={(e) => setEditingFAQ({...editingFAQ, answer: e.target.value})}
+                        value={editingFAQ.answer || ''}
+                        onChange={(e) => setEditingFAQ({ ...editingFAQ, answer: e.target.value })}
                         required
                         className="w-full bg-[#FCFBFA] border p-2 text-xs"
                       />
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <input 
-                        type="checkbox" 
+                      <input
+                        type="checkbox"
                         id="faq-active-check"
-                        checked={editingFAQ.active !== false} 
-                        onChange={(e) => setEditingFAQ({...editingFAQ, active: e.target.checked})}
+                        checked={editingFAQ.active !== false}
+                        onChange={(e) => setEditingFAQ({ ...editingFAQ, active: e.target.checked })}
                         className="h-4 w-4 accent-[#D9411E]"
                       />
                       <label htmlFor="faq-active-check" className="font-bold select-none cursor-pointer">Activate FAQ immediately for guest observers</label>
@@ -3125,7 +3119,7 @@ export default function App() {
                     <h3 className="font-serif text-xl font-bold">Curated Showcase Banners</h3>
                     <p className="text-xs text-zinc-500 mt-1">Modify active slide images, captions and redirection tags presented to catalog visitors.</p>
                   </div>
-                  <button 
+                  <button
                     onClick={() => setEditingBanner({
                       title: '',
                       subtitle: '',
@@ -3153,32 +3147,32 @@ export default function App() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label className="font-bold">Banner Header Title</label>
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           placeholder="e.g. Tech Deals Nairobi"
-                          value={editingBanner.title || ''} 
-                          onChange={(e) => setEditingBanner({...editingBanner, title: e.target.value})}
+                          value={editingBanner.title || ''}
+                          onChange={(e) => setEditingBanner({ ...editingBanner, title: e.target.value })}
                           required
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                         />
                       </div>
                       <div className="space-y-2">
                         <label className="font-bold">Redirection catalog Link</label>
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           placeholder="e.g. /catalog?category=phones"
-                          value={editingBanner.link || ''} 
-                          onChange={(e) => setEditingBanner({...editingBanner, link: e.target.value})}
+                          value={editingBanner.link || ''}
+                          onChange={(e) => setEditingBanner({ ...editingBanner, link: e.target.value })}
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                         />
                       </div>
                       <div className="space-y-2 sm:col-span-2">
                         <label className="font-bold">Showcase image URL</label>
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           placeholder="https://images.unsplash.com/..."
-                          value={editingBanner.image || ''} 
-                          onChange={(e) => setEditingBanner({...editingBanner, image: e.target.value})}
+                          value={editingBanner.image || ''}
+                          onChange={(e) => setEditingBanner({ ...editingBanner, image: e.target.value })}
                           required
                           className="w-full bg-[#FCFBFA] border p-2 text-xs"
                         />
@@ -3187,21 +3181,21 @@ export default function App() {
 
                     <div className="space-y-2">
                       <label className="font-bold block">Secondary Promo Subtitle</label>
-                      <input 
+                      <input
                         type="text"
                         placeholder="e.g. Buy authentic items compiled from Nairobi warehouses with commissions."
-                        value={editingBanner.subtitle || ''} 
-                        onChange={(e) => setEditingBanner({...editingBanner, subtitle: e.target.value})}
+                        value={editingBanner.subtitle || ''}
+                        onChange={(e) => setEditingBanner({ ...editingBanner, subtitle: e.target.value })}
                         className="w-full bg-[#FCFBFA] border p-2 text-xs"
                       />
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <input 
-                        type="checkbox" 
+                      <input
+                        type="checkbox"
                         id="banner-active-check"
-                        checked={editingBanner.active !== false} 
-                        onChange={(e) => setEditingBanner({...editingBanner, active: e.target.checked})}
+                        checked={editingBanner.active !== false}
+                        onChange={(e) => setEditingBanner({ ...editingBanner, active: e.target.checked })}
                         className="h-4 w-4 accent-[#D9411E]"
                       />
                       <label htmlFor="banner-active-check" className="font-bold select-none cursor-pointer">Make banner slide live on user carousel</label>
@@ -3218,9 +3212,9 @@ export default function App() {
                   {banners.map(b => (
                     <div key={b.id} className="border border-zinc-200 bg-white p-4 grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
                       <div className="md:col-span-3">
-                        <img 
-                          src={b.image} 
-                          alt={b.title} 
+                        <img
+                          src={b.image}
+                          alt={b.title}
                           className="w-full h-24 object-cover border border-zinc-200"
                           referrerPolicy="no-referrer"
                         />
@@ -3297,10 +3291,9 @@ export default function App() {
                             <span className="text-zinc-500">{percentage}% of inventory logs</span>
                           </div>
                           <div className="w-full bg-zinc-100 h-2.5 rounded-none border border-zinc-200 overflow-hidden">
-                            <div 
-                              className={`h-full border-r ${
-                                i % 3 === 0 ? 'bg-[#D9411E] border-red-700' : i % 3 === 1 ? 'bg-green-600 border-green-800' : 'bg-[#121212] border-zinc-800'
-                              }`} 
+                            <div
+                              className={`h-full border-r ${i % 3 === 0 ? 'bg-[#D9411E] border-red-700' : i % 3 === 1 ? 'bg-green-600 border-green-800' : 'bg-[#121212] border-zinc-800'
+                                }`}
                               style={{ width: `${Math.max(percentage, 8)}%` }}
                             ></div>
                           </div>
@@ -3364,14 +3357,14 @@ export default function App() {
       {/* FOOTER BAR */}
       <footer className="border-t border-[#121212]/15 bg-[#FCFBFA] py-12 px-6 mt-16 text-xs text-[#121212]/75 font-sans">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-          
+
           <div className="space-y-3">
             <h3 className="font-serif text-lg font-bold tracking-tight uppercase">DEALY KE</h3>
             <p className="text-[11px] text-zinc-500 leading-relaxed whitespace-pre-line">
               {"Dealy KE is a Kenyan deal discovery platform that helps shoppers find the best products, prices, and offers from trusted online marketplaces and sellers in one place. We compare deals, source genuine discounts, and help customers save time and money by making it easier to find and order the best offers available.\n\nDealy KE – Find Better Deals. Shop Smarter. Save More."}
             </p>
             <div className="text-[10px] font-mono tracking-widest text-[#D9411E] font-bold">
-              © 2026 DEALY.CO.KE • NAIROBI
+              © 2026 WWW.DEALYKENYA.SHOP • NAIROBI
             </div>
           </div>
 
@@ -3389,7 +3382,7 @@ export default function App() {
             <div className="flex flex-col gap-1.5 text-zinc-500 text-[11px] items-start">
               <a href="/catalog" onClick={(e) => { e.preventDefault(); setActiveTab('catalog'); }} className="hover:text-black">Catalog Drops</a>
               <a href="/blogs" onClick={(e) => { e.preventDefault(); setActiveTab('blogs'); }} className="hover:text-black">Buying Guides</a>
-              <a href="/admin" onClick={(e) => { 
+              <a href="/admin" onClick={(e) => {
                 e.preventDefault();
                 setLoginModalAdminMode(true);
                 setIsLoginModalOpen(true);
@@ -3402,24 +3395,24 @@ export default function App() {
           <div className="space-y-2">
             <h4 className="font-sans font-bold uppercase text-[10px] tracking-widest text-[#111]">Legal & Policy</h4>
             <div className="flex flex-col gap-1.5 text-zinc-500 text-[11px] items-start">
-              <a 
+              <a
                 href="/privacy-policy"
                 onClick={(e) => {
                   e.preventDefault();
                   window.history.pushState({}, '', '/privacy-policy');
                   setActiveTab('privacy');
-                }} 
+                }}
                 className="hover:text-black"
               >
                 Privacy Policy
               </a>
-              <a 
+              <a
                 href="/terms&services"
                 onClick={(e) => {
                   e.preventDefault();
                   window.history.pushState({}, '', '/terms&services');
                   setActiveTab('terms');
-                }} 
+                }}
                 className="hover:text-black"
               >
                 Terms of Service
@@ -3436,7 +3429,7 @@ export default function App() {
       {/* COMPONENT 7: COLLAPSIBLE RIGHT-SIDE AI SHOPPING ASSISTANT PANEL */}
       {aiOpen && (
         <aside className="fixed inset-y-0 right-0 z-50 w-full sm:max-w-md bg-white border-l border-[#121212]/15 shadow-2xl flex flex-col font-sans animate-slide-in">
-          
+
           {/* Header Panel */}
           <div className="p-4 bg-[#121212] text-white flex justify-between items-center shrink-0">
             <div className="flex items-center gap-2">
@@ -3447,8 +3440,8 @@ export default function App() {
                 <p className="text-[9px] text-zinc-400 font-mono tracking-widest uppercase">ACTIVE CORRELATION CONTEXT</p>
               </div>
             </div>
-            
-            <button 
+
+            <button
               onClick={() => setAiOpen(false)}
               className="text-zinc-400 hover:text-white p-1"
               title="Collapse chat pane"
@@ -3478,24 +3471,23 @@ export default function App() {
           </div>
 
           {/* Chat scrolling bubbles viewport */}
-          <div 
+          <div
             ref={scrollRef}
             className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#FCFBFA]"
           >
             {aiHistory.map((m, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className={`flex flex-col gap-1 max-w-[85%] ${m.role === 'user' ? 'ml-auto items-end animate-fade-in' : 'mr-auto items-start'}`}
               >
                 <span className="font-mono text-[8px] tracking-widest uppercase text-zinc-400">
                   {m.role === 'model' ? 'Dealy KE Assistant Agent' : 'Moses (Registered Curation Client)'}
                 </span>
 
-                <div className={`p-3.5 text-xs md:text-[13px] leading-relaxed select-text ${
-                  m.role === 'user' 
-                    ? 'bg-zinc-100 text-[#121212]' 
+                <div className={`p-3.5 text-xs md:text-[13px] leading-relaxed select-text ${m.role === 'user'
+                    ? 'bg-zinc-100 text-[#121212]'
                     : 'bg-white border border-[#121212]/10 text-[#121212] font-serif italic shadow-sm'
-                }`}>
+                  }`}>
                   {m.text}
                 </div>
 
@@ -3507,7 +3499,7 @@ export default function App() {
                       <h4 className="font-serif font-bold text-xs truncate text-[#111]">{m.linkProduct.title}</h4>
                       <p className="text-[10px] font-mono font-bold text-[#D9411E]">KES {m.linkProduct.price.toLocaleString()}</p>
                     </div>
-                    <button 
+                    <button
                       onClick={() => {
                         setSelectedProduct(m.linkProduct!);
                         setAiOpen(false);
@@ -3532,15 +3524,15 @@ export default function App() {
           {/* Input text board controller */}
           <div className="p-3 border-t border-[#121212]/15 bg-[#F2F0ED] shrink-0">
             <div className="flex gap-2">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 placeholder="Consult about stock, Jumia deals, shipping..."
                 value={aiInput}
                 onChange={(e) => setAiInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && askAIAgent()}
                 className="flex-1 bg-white border border-[#121212]/20 py-2 pl-3 pr-2 text-xs focus:outline-none focus:border-[#D9411E]"
               />
-              <button 
+              <button
                 onClick={askAIAgent}
                 disabled={aiLoading}
                 className="bg-[#121212] hover:bg-opacity-80 disabled:opacity-50 text-white px-4 py-2 text-xs font-mono uppercase tracking-widest font-bold"
@@ -3557,14 +3549,14 @@ export default function App() {
       {selectedProduct && (
         <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto animate-fade-in text-[#121212]">
           <div className="bg-[#FCFBFA] max-w-2xl w-full border border-[#121212]/15 shadow-2xl relative flex flex-col max-h-[90vh]">
-            
+
             {/* Modal Header */}
             <div className="p-4 bg-[#F2F0ED] border-b border-[#121212]/10 flex justify-between items-center sticky top-0 bg-white/95 z-20">
               <div className="flex items-center gap-2">
                 <span className="font-mono text-[9px] font-bold text-zinc-500 uppercase">PRODUCT DOSSIER BRIEF:</span>
                 <span className="text-[10px] font-bold text-white bg-[#D9411E] px-2 uppercase font-mono tracking-wider">{selectedProduct.source}</span>
               </div>
-              <button 
+              <button
                 onClick={() => setSelectedProduct(null)}
                 className="text-zinc-500 hover:text-black p-1 bg-white border rounded-full"
               >
@@ -3574,9 +3566,9 @@ export default function App() {
 
             {/* Content pane */}
             <div className="p-6 overflow-y-auto space-y-8 flex-1">
-              
+
               <div className="flex flex-col space-y-8">
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-start">
                   {/* Image side with gallery support */}
                   <div className="space-y-2">
@@ -3615,11 +3607,10 @@ export default function App() {
                                 <button
                                   key={imgIdx}
                                   onClick={() => setActiveGalleryIndex(imgIdx)}
-                                  className={`h-14 w-14 shrink-0 border-2 overflow-hidden transition ${
-                                    imgIdx === safeIndex
+                                  className={`h-14 w-14 shrink-0 border-2 overflow-hidden transition ${imgIdx === safeIndex
                                       ? 'border-[#D9411E] opacity-100'
                                       : 'border-zinc-200 opacity-60 hover:opacity-100'
-                                  }`}
+                                    }`}
                                 >
                                   <img src={imgUrl} alt={`${selectedProduct.title} ${imgIdx + 1}`} className="h-full w-full object-cover" />
                                 </button>
@@ -3652,8 +3643,8 @@ export default function App() {
                           <span className="text-xs text-zinc-400 line-through block font-medium">KES {selectedProduct.originalPrice.toLocaleString()}</span>
                         )}
                       </div>
-                      
-                      <button 
+
+                      <button
                         onClick={() => toggleWishlist(selectedProduct.id)}
                         className={`p-3 border transition ${wishlist.includes(selectedProduct.id) ? 'border-orange-500 text-orange-600 bg-orange-50' : 'border-zinc-300 text-zinc-400 hover:text-rose-600 bg-white'}`}
                         title="Save drop code"
@@ -3666,7 +3657,7 @@ export default function App() {
                     <div className="space-y-3 pt-2">
                       {selectedProduct.source === ProductSource.JFORCE ? (
                         <div className="space-y-2">
-                          <button 
+                          <button
                             onClick={() => setIsOrderModalOpen(true)}
                             className="w-full bg-[#121212] hover:bg-opacity-80 text-white font-mono text-xs uppercase tracking-widest font-extrabold py-4 transition"
                           >
@@ -3678,7 +3669,7 @@ export default function App() {
                         </div>
                       ) : (
                         <div className="space-y-2">
-                          <button 
+                          <button
                             onClick={() => trackClick(selectedProduct)}
                             className="w-full bg-[#D9411E] hover:bg-black text-white font-mono text-xs uppercase tracking-widest font-extrabold py-4 transition"
                           >
@@ -3691,9 +3682,9 @@ export default function App() {
                       )}
 
                       {/* Copiable share link with tracking preset */}
-                      <button 
+                      <button
                         onClick={() => {
-                          navigator.clipboard.writeText(`https://dealy.co.ke/?product=${selectedProduct.id}&ref=${partnerRefCode}`);
+                          navigator.clipboard.writeText(`https://www.dealykenya.shop/?product=${selectedProduct.id}&ref=${partnerRefCode}`);
                           showToast('Special curation referral link captured!');
                         }}
                         className="w-full border border-dashed border-zinc-400 hover:border-black py-2.5 text-[10px] font-mono uppercase tracking-wider text-zinc-650 flex items-center justify-center gap-1.5"
@@ -3708,7 +3699,7 @@ export default function App() {
                 <div className="border-t border-[#121212]/10 pt-6">
                   <span className="font-mono text-[10px] text-[#D9411E] font-bold block uppercase mb-3">PRODUCT STORY & DETAILS</span>
                   <div className="bg-white border border-[#121212]/5 p-6 shadow-sm">
-                    <div 
+                    <div
                       className="text-sm md:text-base text-zinc-700 leading-relaxed font-sans prose max-w-none"
                       dangerouslySetInnerHTML={{ __html: selectedProduct.description }}
                     />
@@ -3738,7 +3729,7 @@ export default function App() {
               {/* Customer Review Section */}
               <div className="space-y-4 border-t border-[#121212]/10 pt-6">
                 <h3 className="font-serif text-lg font-bold italic">Buyer Opinions & Reviews ({reviews.filter(r => r.productId === selectedProduct.id).length})</h3>
-                
+
                 {reviews.filter(r => r.productId === selectedProduct.id).length === 0 ? (
                   <p className="text-xs text-zinc-400 italic">No localized review logs published on this item yet. Be the first to express opinion!</p>
                 ) : (
@@ -3758,14 +3749,14 @@ export default function App() {
                 {/* Submit New Review Form */}
                 <form onSubmit={handleReviewSubmit} className="border p-4 bg-zinc-50 space-y-3 font-mono text-xs">
                   <span className="font-bold text-[10px] text-zinc-500 block">SHARE YOUR DEAL EXPERIENCE:</span>
-                  
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div className="space-y-1">
                       <label className="text-[10px] uppercase font-bold">Your Name</label>
-                      <input 
-                        type="text" 
-                        value={reviewForm.name} 
-                        onChange={(e) => setReviewForm({...reviewForm, name: e.target.value})}
+                      <input
+                        type="text"
+                        value={reviewForm.name}
+                        onChange={(e) => setReviewForm({ ...reviewForm, name: e.target.value })}
                         required
                         className="w-full bg-white border p-1 rounded-none text-xs"
                       />
@@ -3774,7 +3765,7 @@ export default function App() {
                       <label className="text-[10px] uppercase font-bold">Rating stars</label>
                       <select
                         value={reviewForm.rating}
-                        onChange={(e) => setReviewForm({...reviewForm, rating: Number(e.target.value)})}
+                        onChange={(e) => setReviewForm({ ...reviewForm, rating: Number(e.target.value) })}
                         className="w-full bg-white border p-1 rounded-none text-xs text-amber-600 font-bold"
                       >
                         <option value="5">★★★★★ Premium (5/5)</option>
@@ -3788,10 +3779,10 @@ export default function App() {
 
                   <div className="space-y-1">
                     <label className="text-[10px] uppercase font-bold">Comment feedback</label>
-                    <textarea 
+                    <textarea
                       rows={2}
                       value={reviewForm.comment}
-                      onChange={(e) => setReviewForm({...reviewForm, comment: e.target.value})}
+                      onChange={(e) => setReviewForm({ ...reviewForm, comment: e.target.value })}
                       required
                       placeholder="Comment on camera performance, Nairobi shipment delays..."
                       className="w-full bg-white border p-1.5 rounded-none text-xs font-sans placeholder-zinc-400"
@@ -3810,8 +3801,8 @@ export default function App() {
                 <h4 className="font-serif text-sm font-bold uppercase text-zinc-550">Curated similar deals in network:</h4>
                 <div className="grid grid-cols-2 gap-4">
                   {products.filter(p => p.category === selectedProduct.category && p.id !== selectedProduct.id).slice(0, 2).map((sim) => (
-                    <div 
-                      key={sim.id} 
+                    <div
+                      key={sim.id}
                       onClick={() => {
                         setSelectedProduct(sim);
                         showToast(`Transitioning similar curation: ${sim.title}`);
@@ -3838,7 +3829,7 @@ export default function App() {
       {isOrderModalOpen && selectedProduct && (
         <div className="fixed inset-0 z-55 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto animate-fade-in text-[#121212]">
           <div className="bg-white max-w-md w-full border border-black shadow-2xl p-6 relative font-mono text-xs space-y-4">
-            
+
             <div className="flex justify-between border-b pb-2 mb-2">
               <div className="space-y-1">
                 <span className="text-[8px] font-bold text-zinc-450 uppercase tracking-widest block">ADMIN COURIER DISPATCH</span>
@@ -3864,7 +3855,7 @@ export default function App() {
               </div>
             ) : (
               <form onSubmit={handleJforceOrderSubmit} className="space-y-3">
-                
+
                 <div className="bg-[#F2F0ED] p-3 text-[11px] space-y-1 text-zinc-650">
                   <div className="font-bold font-serif italic text-[#121212]">{selectedProduct.title}</div>
                   <div className="flex justify-between text-[#D9411E] font-bold font-mono">
@@ -3876,10 +3867,10 @@ export default function App() {
 
                 <div className="space-y-1">
                   <label className="text-[10px] uppercase font-bold block text-zinc-700">Full Name</label>
-                  <input 
-                    type="text" 
-                    value={orderForm.name} 
-                    onChange={(e) => setOrderForm({...orderForm, name: e.target.value})}
+                  <input
+                    type="text"
+                    value={orderForm.name}
+                    onChange={(e) => setOrderForm({ ...orderForm, name: e.target.value })}
                     required
                     placeholder="E.g. Moses Mwai"
                     className="w-full bg-[#FCFBFA] border p-2 focus:outline-none text-xs font-sans"
@@ -3888,10 +3879,10 @@ export default function App() {
 
                 <div className="space-y-1">
                   <label className="text-[10px] uppercase font-bold block text-zinc-700">Email Address</label>
-                  <input 
-                    type="email" 
-                    value={orderForm.email || ''} 
-                    onChange={(e) => setOrderForm({...orderForm, email: e.target.value})}
+                  <input
+                    type="email"
+                    value={orderForm.email || ''}
+                    onChange={(e) => setOrderForm({ ...orderForm, email: e.target.value })}
                     required
                     placeholder="E.g. mosesmwai609@gmail.com"
                     className="w-full bg-[#FCFBFA] border p-2 focus:outline-none text-xs font-sans"
@@ -3900,10 +3891,10 @@ export default function App() {
 
                 <div className="space-y-1">
                   <label className="text-[10px] uppercase font-bold block">Delivery Location (Nairobi / County)</label>
-                  <input 
-                    type="text" 
-                    value={orderForm.location} 
-                    onChange={(e) => setOrderForm({...orderForm, location: e.target.value})}
+                  <input
+                    type="text"
+                    value={orderForm.location}
+                    onChange={(e) => setOrderForm({ ...orderForm, location: e.target.value })}
                     required
                     placeholder="E.g Westlands Mall kiosk 4, Nairobi"
                     className="w-full bg-[#FCFBFA] border p-2 focus:outline-none text-xs font-sans"
@@ -3913,22 +3904,22 @@ export default function App() {
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
                     <label className="text-[10px] uppercase font-bold block">My Phone (WhatsApp)</label>
-                    <input 
-                      type="tel" 
-                      value={orderForm.phone} 
-                      onChange={(e) => setOrderForm({...orderForm, phone: e.target.value})}
+                    <input
+                      type="tel"
+                      value={orderForm.phone}
+                      onChange={(e) => setOrderForm({ ...orderForm, phone: e.target.value })}
                       required
                       className="w-full bg-[#FCFBFA] border p-2 focus:outline-none text-xs"
                     />
                   </div>
                   <div className="space-y-1">
                     <label className="text-[10px] uppercase font-bold block">Quantity Required</label>
-                    <input 
-                      type="number" 
-                      min="1" 
+                    <input
+                      type="number"
+                      min="1"
                       max="10"
-                      value={orderForm.qty} 
-                      onChange={(e) => setOrderForm({...orderForm, qty: Number(e.target.value)})}
+                      value={orderForm.qty}
+                      onChange={(e) => setOrderForm({ ...orderForm, qty: Number(e.target.value) })}
                       required
                       className="w-full bg-[#FCFBFA] border p-2 focus:outline-none text-xs"
                     />
@@ -3937,18 +3928,18 @@ export default function App() {
 
                 <div className="space-y-1">
                   <label className="text-[10px] uppercase font-bold block">Delivery notes (hours, contacts)</label>
-                  <textarea 
+                  <textarea
                     rows={2}
-                    value={orderForm.notes} 
-                    onChange={(e) => setOrderForm({...orderForm, notes: e.target.value})}
+                    value={orderForm.notes}
+                    onChange={(e) => setOrderForm({ ...orderForm, notes: e.target.value })}
                     placeholder="E.g deliver after office hours..."
                     className="w-full bg-[#FCFBFA] border p-2 focus:outline-none text-xs font-sans"
                   />
                 </div>
 
                 <div className="pt-2">
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     className="w-full bg-[#121212] hover:bg-[#25D366] text-white hover:text-[#121212] font-mono text-xs uppercase tracking-widest font-extrabold py-3.5 transition-all duration-300 ease-in-out flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow-md border border-[#121212] hover:border-[#25D366] active:scale-[0.985] select-none"
                   >
                     <span>Dispatch & Complete on WhatsApp ↗</span>

@@ -70,7 +70,7 @@ function escapeXml(unsafe: string): string {
 // Sitemap endpoint for Google SEO
 app.get('/sitemap.xml', async (req, res) => {
   try {
-    const baseUrl = 'https://dealy.co.ke';
+    const baseUrl = 'https://www.dealykenya.shop';
     
     // Fetch dynamic content from Supabase
     const [{ data: products }, { data: blogs }] = await Promise.all([
@@ -406,7 +406,7 @@ app.post('/api/orders', async (req, res) => {
   // Email Notification simulated in Node.js logs
   console.log(`
 ========================================================================
-[EMAIL SIMULATION] TO: admin@dealy.co.ke
+[EMAIL SIMULATION] TO: admin@dealykenya.shop
 SUBJECT: [New JForce Order Request] - Order #${order.id} Received
 BODY:
 Hello Dealy KE Administrator,
