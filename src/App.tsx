@@ -16,8 +16,8 @@ import { UserRole, ProductSource, OrderStatus, Product, Category, Order, Review,
 import Header from './components/Header';
 import AuthModal from './components/AuthModal';
 import { supabase } from './lib/supabase';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
 import herodealyImage from './assets/images/herodealy.png';
 import { Analytics } from "@vercel/analytics/react";
 
